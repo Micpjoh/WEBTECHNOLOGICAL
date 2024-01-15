@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Lato, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background:white;
+}
+
+/* HEADER */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: calc(100% - calc(40rem/16));
+    padding: calc(5rem/16) calc(20rem/16);
+    background: white;
+}
+
+#header a{
+    text-decoration: none;
+}
+
+#header a:hover {
+    color: #007bff; 
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo a{
+    padding-right: calc(35rem/16);
+    padding-left: calc(100rem/16);
+    font-size: 2rem;
+    color: black;
+}
+
+.navbarLEFT .a {
+    margin-left: calc(30rem/16);
+    font-size: calc(18rem/16);
+    color: black;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: calc(135rem/16);
+    border-radius: calc(10rem/16);
+    box-shadow: 0rem 0.5rem 1rem 0rem rgba(0,0,0,0.2);
+    background-color: #ffffff;
+}
+    
+.dropdown-content a {
+    text-decoration: none;
+    color: black;
+    padding: calc(10rem/16);
+}
+
+.dropdown:hover .dropdown-content {
+    display: grid;
+}
+
+.navbarRIGHT {
+    display: flex;
+    align-items: center; 
+    padding-right: calc(100rem/16);
+    color: black;
+}
+
+.navbarRIGHT a {
+    padding-left: calc(40rem/16);
+    font-size: calc(18rem/16);
+    color: black;
+}
+
+.cart {
+    margin-top: calc(8rem/16);
+}
+
+.nav-bars {
+    display: none;
+    cursor: pointer;
+
+}
+.nav-dropdown{
+    height: 0;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5 );
+}
+
+.nav-dropdown li{
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+}
+
+.nav-dropdown a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-dropdown.open{
+    height: fit-content;
+}
+
+@media (max-width: 1000px) {
+    .navbarRIGHT, 
+    .navbarLEFT{
+        display: none;
+    }
+    
+    .nav-bars{
+        display: block;
+    }
+
+    .nav-dropdown{
+        display: block;
+        right:0;
+        width: 100%;
+    }
+    .logo a {
+        padding-left: 0; 
+    }
+}
+
+/* FOOTER */
+#footer {
+    padding: calc(20rem/16);
+    background-color: white;
+    border: solid black calc(0.1rem/16);
+    position: relative;
+    clear: both;
+}
+
+.copyright {
+    display: flex;
+    justify-content: right;
+    font-size: 0.5rem;
+}
