@@ -80,7 +80,7 @@
     display: block;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1156px) {
     .accordions{
         width: 60%;
     }

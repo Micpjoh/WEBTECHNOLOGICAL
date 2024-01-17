@@ -1,0 +1,17 @@
+1. About us/Home pages af
+
+2. Contact page werkend!
+
+3. Login/Signup/Logout/Delete account
+
+4. Security/Cookies (Consent banner in lecture slide)
+
+
+Moeilijker ->
+1. Catalog en Shopping cart
+2. WebAPI
+
+Week 1 = --
+Week 2 = Finish 1, 2, 3
+Week 3 = Finish WebAPI and Cart and Cookies
+Week 4 = Check security
