@@ -1,3 +1,7 @@
+<?php
+require_once "includes/securesession.inc.php"
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +22,7 @@
     <!-- BODY SECTION -->
     <section id="signup-container">
         <div class = signup-box>
-            <form method="POST" action="includes/signup.inc.php">
+            <form action="includes/signup.inc.php" method="post">
                 <h1>Sign up to&nbsp; <span style="color: green;"> GreenWear</span></h1>
                 <div class="input-group">
                     <label for="name">*USERNAME</label>
@@ -46,7 +50,7 @@
                 </div>
 
                 <div class="terms-of-service">
-                    <input type="checkbox" name="consent" value="conditions" required>
+                    <input type="checkbox" name="consent" value="conditions">
                     <span> *Yes, I have read and accepted the terms and conditions.<br>
                             <a href="termsservice.php">terms of service</a>
                     </span>
