@@ -22,7 +22,7 @@ require_once "includes/securesession.inc.php"
     <!-- BODY SECTION -->
     <section id="login-container">
         <div class = "login-box">
-            <form method="POST" action="login.inc.php">
+            <form action="includes/login.inc.php" method="POST">
                 <h1>Log in to&nbsp; <span style="color: green;"> GreenWear</span></h1>
                 <div class="input-group">
                     <label for="email">EMAIL</label>

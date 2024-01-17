@@ -12,3 +12,9 @@ if (isset($_POST["submit"])) {
 
     require_once "databasis.inc.php";
     require_once "checkvaliditysignup.inc.php";
+
+}
+else {
+    header("Location: ../signup.php");
+    exit();
+}
