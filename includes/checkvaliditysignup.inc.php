@@ -48,18 +48,3 @@ function matching_pw($pw, $pwrepeat) {
         return false;
     }
 }
-
-function createUser($conn,$username,$email,$pw) {
-    $sql = "INSERT INTO users (username, email, password) VALUES (?,?,?);";
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../signup.php?error=stmtfailed");
-        exit();
-    }
-    $hashedpw = password_hash($pw, PASSWORD_BCRYPT)
-    mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedpw)
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_close($stmt);
-    header("location: ../signup.php?error=none");
-    exit();
-}

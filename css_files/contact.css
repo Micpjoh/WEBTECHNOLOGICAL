@@ -1,8 +1,6 @@
 /* BODY 1 */
 #body1 {
     display: grid;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     background-color: #f3f1ef;
     color: black;

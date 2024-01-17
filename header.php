@@ -1,7 +1,7 @@
 <section id="header">
     <div class="nav-container">
         <div class="logo">
-            <a href="index.php">GreenWear</a>
+            <a href="home.php">GreenWear</a>
         </div>
 
         <div class="navbarLEFT">
