@@ -40,7 +40,7 @@ body {
     padding-right: calc(35rem/16);
     padding-left: calc(100rem/16);
     font-size: 2rem;
-    color: black;
+    color: green;
 }
 
 .navbarLEFT .a {
@@ -115,7 +115,7 @@ body {
     height: fit-content;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1156px) {
     .navbarRIGHT, 
     .navbarLEFT{
         display: none;
@@ -139,7 +139,7 @@ body {
 #footer {
     padding: calc(20rem/16);
     background-color: white;
-    border: solid black calc(0.1rem/16);
+    border: calc(4rem/16) solid #f3f1ef;
     position: relative;
     clear: both;
 }
@@ -149,3 +149,26 @@ body {
     justify-content: right;
     font-size: 0.5rem;
 }
+
+#quicklinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-top: calc(4rem/16) solid #f3f1ef;
+}
+
+#quicklinks .groups-footer h3 {
+    margin-right: 100px; /* Optional: Add some spacing between h1 elements */
+}
+
+.groups-footer a {
+    text-decoration: none;
+    color: #a0a0a0;
+}
+
+.groups-footer2 a {
+    text-decoration: none;
+    color: #a0a0a0;
+}
+
+
