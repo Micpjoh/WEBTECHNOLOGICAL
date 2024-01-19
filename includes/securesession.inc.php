@@ -21,7 +21,7 @@ if(!isset($_SESSION["time_new_sessionid"])) {
     $_SESSION["time_new_sessionid"] = time();
 
 } else {
-    $session_time = 60 * 60; // 1 uur (Misschien te lang)
+    $session_time = 60 * 60; 
     if(time() - $_SESSION["time_new_sessionid"] >= $session_time){
         session_regenerate_id();
         $_SESSION["time_new_sessionid"] = time();

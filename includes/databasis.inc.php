@@ -1,12 +1,9 @@
-<!-- databasis.inc.php -->
 <?php
-// Connection naar database
 
-// LOKAAL, wanneer we deployen moeten we ff TA om hulp vragen / lecture <3
-$servername="localhost";
-$DBpassword="";
-$DBusername="root";
-$DBname="greenwear";
+$servername = "localhost";
+$DBusername = "root";
+$DBpassword = "";
+$DBname = "greenwear";
 
 // !!! REMOTE connectie !!!
 //$servername=""
@@ -14,10 +11,24 @@ $DBname="greenwear";
 //$DBusername=""
 //$DBname=""
 
-$conn = mysqli_connect($servername, $DBname, $DBpassword, $DBusername);
+$sqliconn = new mysqli($servername, $DBusername, $DBpassword, $DBname);
 
-if (!$conn) {
-    die()
+if ($sqlionn->connect_error) {
+    die("Connection failed: " . $sqliconn->connect_error);
 }
 
 // Geen reden om te closen, als het een 100% php file is
+
+// // Database credentials
+// $servername = "your_server_name";
+// $username = "your_username";
+// $password = "your_password";
+// $dbname = "your_database_name";
+
+// // Create connection
+// $conn = new mysqli($servername, $username, $password, $dbname);
+
+// // Check connection
+// if ($conn->connect_error) {
+//     die("Connection failed: " . $conn->connect_error);
+// }

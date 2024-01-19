@@ -39,12 +39,12 @@
 }
 
 .accordion {
-    display: absolute;
+    position: relative; /* Change from absolute to relative */
     padding: calc(15rem/16);
     border-bottom: calc(4rem/16) solid #f3f1ef;
     border-left:  calc(4rem/16) solid #f3f1ef;
     border-right:  calc(4rem/16) solid #f3f1ef;
-    
+    overflow: hidden; /* Add overflow hidden */
 }
 
 .accordion:first-child {
@@ -61,8 +61,6 @@
 
 .head {
     display: flex;
-
-
     text-align: left;
     cursor: pointer;
     padding: calc(10rem/16);
@@ -70,14 +68,19 @@
 }
 
 .head-info {
-    display: none;
-    font-size: calc(14rem/16);
-    padding: calc(10rem/16);
+    display: block;
+    overflow: hidden;
+    height: 0; 
+    opacity: 0; 
+    padding: 0 calc(10rem/16); 
     background-color: #f3f1ef;
+    transition: height 0.5s ease, opacity 0.5s ease, padding 0.5s ease; /* Add padding transition */
 }
 
 .accordion.active .head-info {
-    display: block;
+    height: auto; 
+    opacity: 1; 
+    padding: calc(10rem/16); 
 }
 
 @media (max-width: 1156px) {

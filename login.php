@@ -1,5 +1,5 @@
 <?php
-require_once "includes/securesession.inc.php"
+require_once "includes/securesession.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ require_once "includes/securesession.inc.php"
     <!-- BODY SECTION -->
     <section id="login-container">
         <div class = "login-box">
-            <form action="includes/login.inc.php" method="POST">
+            <form action="includes/login.inc.php" method="post">
                 <h1>Log in to&nbsp; <span style="color: green;"> GreenWear</span></h1>
                 <div class="input-group">
                     <label for="email">EMAIL</label>
@@ -30,25 +30,31 @@ require_once "includes/securesession.inc.php"
                 </div class="input-group">
 
                 <div class="input-group">
-                    <label for="pw">PASSWORD</label>
+                    <label for="password">PASSWORD</label>
                     <input type="password" name="password"></input>
                 </div>
-
+                <?php 
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] = "name-or-pw-is-wrong")
+                        echo "<div class='error-message'>Invalid name or password!</div>";
+                }
+                ?>
                 <div class="button-group">
                     <button type ="submit" name="submit">Submit when ready!</button>
                 </div>
                 
                 <div class="button-group2">
                     <a href="signup.php">Don't have an account? Sign up!</a>
+
                 </div>
             </form>
         </div>
+        
     </section>
 
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
 
-    <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-require_once "includes/securesession.inc.php"
+require_once "includes/securesession.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +22,7 @@ require_once "includes/securesession.inc.php"
     <!-- BODY SECTION -->
     <section id="signup-container">
         <div class = signup-box>
+
             <form action="includes/signup.inc.php" method="post">
                 <h1>Sign up to&nbsp; <span style="color: green;"> GreenWear</span></h1>
                 <div class="input-group">
@@ -59,14 +60,18 @@ require_once "includes/securesession.inc.php"
                 <div class="button-group">
                     <button type ="submit" name="submit">Submit when ready!</button>
                 </div>
+
+                <div class="button-group2">
+                    <a href="signup.php">Already a GreenWear user? Log in</a>
+                </div>
             </form>
+            
         </div>
     </section>
 
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
 
-    <script src="script.js"></script>
 </body>
 
 </html>

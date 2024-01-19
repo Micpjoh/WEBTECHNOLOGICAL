@@ -63,13 +63,14 @@ require_once "includes/securesession.inc.php"
                 <div class="head">CO2 neutral?</div>
                 <div class="head-info">....</div>
             </div>
+
         </div>
     </section>
     
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

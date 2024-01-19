@@ -1,0 +1,14 @@
+#aboutus-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 100px;
+}
+
+.aboutus-box {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    width: 400px;
+}
+.aboutus-box img {
+    width: 400px;
+    height: 50%;
+}

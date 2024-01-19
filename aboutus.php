@@ -1,5 +1,5 @@
 <?php
-require_once "includes/securesession.inc.php"
+require_once "includes/securesession.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +20,41 @@ require_once "includes/securesession.inc.php"
     <?php include "header.php"; ?>
 
     <!-- BODY SECTION -->
+    <section id="aboutus-container">
+        <div class="aboutus-box">
+            <img src="img/catprogramming.png">
+            <div class="aboutus-info">
+                <h2>The GreenWear Team</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Integer sit amet dui justo. Praesent tempus aliquam felis consectetur posuere. 
+                    Integer ornare blandit tortor id rhoncus. Aenean venenatis rutrum odio. Quisque
+                </p>
+            </div>
+        </div>
+
+        <div class="aboutus-box">
+            <div class="aboutus-info">
+                <h2>..</h2>
+                <p>
+                    ..
+                </p>
+            </div>
+        </div>
+
+        <div class="aboutus-box">
+            <div class="aboutus-info">
+                <h2>..</h2>
+                <p>
+                    ..
+                </p>
+            </div>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
 
-    <script src="script.js"></script>
 </body>
 
 </html>

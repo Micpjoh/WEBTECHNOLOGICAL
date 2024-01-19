@@ -1,5 +1,5 @@
 <?php
-require_once "includes/securesession.inc.php"
+require_once "includes/securesession.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ require_once "includes/securesession.inc.php"
         <h2>U can use this form to contact mycloth regarding questions and feedback.</h2>
     </section>
 
-    <!-- veranderd required, om malicious users te voorkomen -->
+    <!-- verander required, om malicious users te voorkomen -->
     <section id="contact-form">
         <form action="" method="post">
             <div class="input-group">
@@ -61,7 +61,6 @@ require_once "includes/securesession.inc.php"
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
 
-    <script src="script.js"></script>
 </body>
 
 </html>
