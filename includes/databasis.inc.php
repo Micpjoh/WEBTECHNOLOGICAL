@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$DBusername = "root";
-$DBpassword = "";
-$DBname = "greenwear";
+$DBusername = "micahj";
+$DBpassword = "WuIFtYONBjaBbCToqsonPaQxFhpHtTDi";
+$DBname = "";
 
 // !!! REMOTE connectie !!!
 //$servername=""
@@ -13,7 +13,7 @@ $DBname = "greenwear";
 
 $sqliconn = new mysqli($servername, $DBusername, $DBpassword, $DBname);
 
-if ($sqlionn->connect_error) {
+if ($sqliconn->connect_error) {
     die("Connection failed: " . $sqliconn->connect_error);
 }
 
