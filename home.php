@@ -26,22 +26,22 @@
     <!-- Full-width images with number text -->
     <div class="mySlides">
       <div class="numbertext">1 / 4</div>
-        <img src="/home/micah/Downloads/DALL·E 2024-01-16 10.13.29 - Create an image of a single t-shirt suitable for a webshop, inspired by general fantasy and adventure themes. The t-shirt features elements like a myt.png" style="width:100%">
+        <img src="img/p4.jpg" style="width:100%">
     </div>
   
     <div class="mySlides">
       <div class="numbertext">2 / 4</div>
-        <img src="/home/micah/Downloads/DALL·E 2024-01-16 10.13.26 - Create an image of a pair of trousers suitable for a webshop, inspired by general video game themes. The trousers feature a unique design with element.png" style="width:100%">
+        <img src="img/p1.jpg" style="width:100%">
     </div>
   
     <div class="mySlides">
       <div class="numbertext">3 / 4</div>
-        <img src="/home/micah/Downloads/DALL·E 2024-01-16 10.13.20 - Create an image of a dark fantasy-themed beanie, ideal for a webshop, with a plain background. The beanie should be displayed from a front perspective.png" style="width:100%">
+        <img src="img/p2.jpg" style="width:100%">
     </div>
   
     <div class="mySlides">
       <div class="numbertext">4 / 4</div>
-        <img src="/home/micah/Downloads/DALL·E 2024-01-16 10.13.08 - Create an image of a sci-fi and action-themed hoodie suitable for a webshop, displayed from a front view. The hoodie is designed with bold and dynamic.png" style="width:100%">
+        <img src="img/p5.jpg" style="width:100%">
     </div>
   
   
@@ -57,16 +57,16 @@
     <!-- Thumbnail images -->
     <div class="row">
       <div class="column">
-        <img class="demo cursor" src="/home/micah/Downloads/DALL·E 2024-01-16 10.13.29 - Create an image of a single t-shirt suitable for a webshop, inspired by general fantasy and adventure themes. The t-shirt features elements like a myt.png" style="width:100%" onclick="currentSlide(1)" alt="Skyrim inspired T-shirt">
+        <img class="demo cursor" src="img/p1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Skyrim inspired T-shirt">
       </div>
       <div class="column">
-        <img class="demo cursor" src="/home/micah/Downloads/DALL·E 2024-01-16 10.13.26 - Create an image of a pair of trousers suitable for a webshop, inspired by general video game themes. The trousers feature a unique design with element.png" style="width:100%" onclick="currentSlide(2)" alt="Mario inspired pants">
+        <img class="demo cursor" src="img/p2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Mario inspired pants">
       </div>
       <div class="column">
-        <img class="demo cursor" src="/home/micah/Downloads/DALL·E 2024-01-16 10.13.20 - Create an image of a dark fantasy-themed beanie, ideal for a webshop, with a plain background. The beanie should be displayed from a front perspective.png" style="width:100%" onclick="currentSlide(3)" alt="Elden Ring inspired Beanie">
+        <img class="demo cursor" src="img/p3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Elden Ring inspired Beanie">
       </div>
       <div class="column">
-        <img class="demo cursor" src="/home/micah/Downloads/DALL·E 2024-01-16 10.13.06 - Create an image of a sci-fi and action-themed hoodie suitable for a webshop, displayed from a front view. The hoodie is designed with bold and dynamic.png" style="width:100%" onclick="currentSlide(4)" alt="DOOM inspired hoodie">
+        <img class="demo cursor" src="img/p5.jpg" style="width:100%" onclick="currentSlide(4)" alt="DOOM inspired hoodie">
       </div>
     </div>
 

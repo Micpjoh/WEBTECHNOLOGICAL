@@ -1,0 +1,125 @@
+/* BANNER */
+#banner-box {
+    display: grid;
+    text-align: center;
+    padding: calc(30rem/16);
+    border-bottom: calc(1rem/16) solid #737070;
+    background-color: #081c3c;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.banner-text h1 {
+    font-size: calc(40rem/16);
+}
+
+/* SECTION 1 */
+#interface-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 130px;
+}
+.interface-box {
+    border: calc(4rem/16) solid #f3f1ef;
+
+}
+
+.interface-box h1 {
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.function-group {
+    display: grid;
+    width: 200px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    height: 35px;
+    text-decoration: none;
+}
+.function-group button {
+    background-color: green;
+    color: white;
+    border-radius: 20px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.function-group button a{
+    text-decoration: none;
+    color: white;
+}
+.function-group button:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+
+}
+
+.button-group {
+    display: grid;
+    width: 200px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    height: 35px;
+
+}
+
+.button-group button {
+    background-color: darkred;
+    color: white;
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+.button-group button:hover {
+    background-color: lightcoral;
+    cursor: pointer;
+
+}
+
+.order-box {
+    display: flex;
+    margin-left: 50px;
+    border: calc(4rem/16) solid #f3f1ef;
+}
+
+div.scroll {
+    display: column;
+    background-color: #ffffff;
+    width: 300px;
+    height: 480px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: left;
+    padding: 20px;
+  }
+
+div.scroll h2 {
+    text-align: center;
+}
+
+.orderoutput {
+    margin-bottom: 20px; 
+    padding: 10px;  
+    border: 1px solid #f3f1ef; 
+    background-color: #c6c6c6;
+    border-radius: 15px; 
+}
+
+@media screen and (max-width: 1000px) {
+    #interface-container {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .order-box {
+        margin-left: 0; 
+        margin-right: 0; 
+        margin-top: 30px;
+    }
+}

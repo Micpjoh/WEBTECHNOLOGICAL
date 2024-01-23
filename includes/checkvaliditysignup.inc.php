@@ -18,6 +18,15 @@ function validity_name($username) {
     }
 }
 
+function length_name($username) {
+    if (strlen($username) > 2) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
 function validity_email($email) {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return false;
@@ -74,11 +83,11 @@ function existing_email(string $email, $sqliconn) {
         return false;
     }
 }
-
-function user_creation($username, $email, $pw, $sqliconn) {
+// change here!
+function user_creation($username, $email, $pw, $user_type, $sqliconn) {
     $passhash = password_hash($pw, PASSWORD_BCRYPT);
-    $preparedstatement = $sqliconn->prepare("INSERT INTO users (username, email, pwd) VALUES (?, ?, ?)");
-    $preparedstatement->bind_param("sss", $username, $email, $passhash);
+    $preparedstatement = $sqliconn->prepare("INSERT INTO users (username, email, pw, user_type) VALUES (?, ?, ?, ?)");
+    $preparedstatement->bind_param("ssss", $username, $email, $passhash, $user_type);
     $success = $preparedstatement->execute();
     $preparedstatement->close();
 

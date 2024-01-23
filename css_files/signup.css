@@ -1,9 +1,22 @@
+#herosection{
+    display: grid;
+    text-align: center;
+    color: black;
+    margin-top: 60px;
+    padding: calc(30rem/16);
+}
+
+#herosection h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:  calc(40rem/16);
+}
+
 #signup-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: fit-content; 
-    padding: 80px;
+    padding-bottom: 90px;
 }
 
 .signup-box {
@@ -53,8 +66,20 @@
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 30px;
-    margin-top: 10px;
+    margin-top: 20px;
     height: 50px;
+
+}
+
+.button-group button {
+    background: radial-gradient(circle at 10% 20%, rgb(4, 159, 108) 0%, rgb(194, 254, 113) 90.1%);
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+.button-group button:hover {
+    cursor: pointer;
 
 }
 
@@ -70,10 +95,16 @@
 
 }
 
+.button-group2 a{
+    text-decoration: none;
+    color: blue;
+
+}
+
 .button-group2:hover {
     background-color: #f3f1ef;
     border-radius: 15px;
-
+    
 }
 
 @media (max-width: 1156px) {

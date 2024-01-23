@@ -1,17 +1,38 @@
-1. About us/Home pages af
-
-2. Contact page werkend!
-
-3. Login/Signup/Logout/Delete account
-
-4. Security/Cookies (Consent banner in lecture slide)
-
-
-Moeilijker ->
-1. Catalog en Shopping cart
-2. WebAPI
-
+"old notes"
 Week 1 = --
-Week 2 = Finish 1, 2, 3
-Week 3 = Finish WebAPI and Cart and Cookies
+Week 2 = Finish AboutUs, HomePage, DeleteAcc(ProfilePage), and phpmailer for contact page 
+(All easy, do during week here and there)
+Week 3 = Finish WebAPI and Catalog/Cart and Cookies
 Week 4 = Check security
+
+
+Add Accesibility for handicap (Alt= "image")
+Check security!
+Add js form validation
+Cleanup code
+
+Cart/Catalog and webAPI and Cookies TOP PRIORITY
+
+Read syllabus for more requirements
+
+---------------------------------------------
+"new notes":
+
+Finish Home, aboutus page, footer
+1@Cleanup Code
+1@Add DeleteAccount button
+2@Add accesibility (Start with alt = img)
+@Add info of website to adminphp (Users, Products)
+@Add scroll div with fake products in it
+
+
+
+
+hard:
+Finish cart/catalog, 
+and finish webAPI, 
+?and Admin Page (Add/Delete products)
+?and finish Security/Cookies
+
+Read syllabus for more requirements
+

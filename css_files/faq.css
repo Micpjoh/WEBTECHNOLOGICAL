@@ -1,16 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
-/* SECTION 1*/
-#section1 {
+/* BANNER */
+#banner-box{
     display: grid;
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #f3f1ef;
-    color: black;
+    color: white;
     padding: 30px;
+    background-color: #081c3c;
+    border-bottom: calc(1rem/16) solid #737070;
+
 }
 
-.banner-img {
+.banner-text h1 {
+    letter-spacing: calc(15rem/16);
+    font-size: calc(80rem/16);
+
+}
+
+.banner-text h2 {
+    font-size: calc(20rem/16);
+
+}
+
+/* .banner-img {
     display: flex;
     justify-content: left;
     margin-left: calc(255rem/16);
@@ -19,36 +32,29 @@
 .banner-img img{
     padding-top: calc(30rem/16);
     width: 50%;
-}
+} */
 
-.h1 {
-    letter-spacing: calc(15rem/16);
-    font-size: calc(80rem/16);
-}
-
-.h2 {
-    font-size: calc(20rem/16);
-}
-
-/* SECTION 2 */
-.accordions {
+/* SECTION 1 */
+.accordion-box {
     width: 40%;
+    margin: auto;
     padding: calc(30rem/16);
     padding-bottom: calc(100rem/16);
-    margin: auto;
+
 }
 
 .accordion {
-    position: relative; /* Change from absolute to relative */
+    overflow: hidden; 
     padding: calc(15rem/16);
     border-bottom: calc(4rem/16) solid #f3f1ef;
     border-left:  calc(4rem/16) solid #f3f1ef;
     border-right:  calc(4rem/16) solid #f3f1ef;
-    overflow: hidden; /* Add overflow hidden */
+
 }
 
 .accordion:first-child {
     border-top: calc(4rem/16) solid #f3f1ef;
+
 }
 
 .accordion:last-child{
@@ -57,6 +63,14 @@
     border-bottom-left-radius: calc(20rem/16);
     border-bottom: none;
     box-shadow: 0 calc(10rem/16) calc(10rem/16) rgba(0, 0, 0, 0.1);
+
+}
+
+.accordion.active .head-info {
+    height: auto; 
+    padding: calc(10rem/16); 
+    opacity: 1; 
+
 }
 
 .head {
@@ -65,6 +79,7 @@
     cursor: pointer;
     padding: calc(10rem/16);
     font-size: calc(20rem/16);
+
 }
 
 .head-info {
@@ -73,22 +88,69 @@
     height: 0; 
     opacity: 0; 
     padding: 0 calc(10rem/16); 
-    background-color: #f3f1ef;
-    transition: height 0.5s ease, opacity 0.5s ease, padding 0.5s ease; /* Add padding transition */
-}
+    transition: height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+    color:#797979;
 
-.accordion.active .head-info {
-    height: auto; 
-    opacity: 1; 
-    padding: calc(10rem/16); 
 }
 
 @media (max-width: 1156px) {
-    .accordions{
-        width: 60%;
+    .accordion-box {
+        width: 80%;
+
     }
 
     #section1 img {
         display: none;
+
     }
+
+}
+
+/* SECTION 2 */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+    margin-bottom: 60px;
+    margin-top: auto;
+    text-align: center;
+
+}
+
+.contact-box2 {
+    margin-left: 150px;
+    margin-right: 150px;
+
+}
+
+@media (max-width: 1156px) {
+    .contact-info {
+        margin-left: 0;
+
+    }
+
+}
+
+@media (max-width: 898px) {
+    form {
+        margin-right: 18px;
+        margin-left: -20px;
+
+     }
+
+     .contact-info {
+        margin-top: auto;
+        flex-direction: column;
+        margin-right: 20px;
+
+     }
+
+     .contact-box2 {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+     }
+ 
 }

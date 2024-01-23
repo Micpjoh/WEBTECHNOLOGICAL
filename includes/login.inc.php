@@ -10,13 +10,13 @@ if (isset($_POST["submit"])) {
 
     if(form_filledin($email, $pw)) {
         header("Location: ../login.php?error=fill-in-all-fields");
-        exit();
+        die();
     }
-
-    log_validuser_in($sqliconn, $email, $pw);
+    $rememberMe = isset($_POST['remember_me']) && $_POST['remember_me'] == 'on';
+    log_validuser_in($sqliconn, $email, $pw, $rememberMe);
 
 } 
 else {
     header("Location: ../login.php");
-    exit();
+    die();
 }

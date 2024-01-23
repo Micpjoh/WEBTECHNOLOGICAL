@@ -1,5 +1,10 @@
 <?php
 require_once "includes/securesession.inc.php";
+
+if (isset($_SESSION['user_id'])) {
+    header("Location: home.php");
+    die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,33 +24,52 @@ require_once "includes/securesession.inc.php";
     <!-- NAVIGATION BAR -->
     <?php include "header.php"; ?>
 
+    <!-- HERO SECTION -->
+    <section id="herosection">
+        <div class="header-text">
+            <h1>Great to see you again</h1>
+        </div>
+    </section>
+
     <!-- BODY SECTION -->
     <section id="login-container">
         <div class = "login-box">
             <form action="includes/login.inc.php" method="post">
                 <h1>Log in to&nbsp; <span style="color: green;"> GreenWear</span></h1>
-                <div class="input-group">
-                    <label for="email">EMAIL</label>
-                    <input type="email" name="email"></input>
-                </div class="input-group">
 
-                <div class="input-group">
-                    <label for="password">PASSWORD</label>
-                    <input type="password" name="password"></input>
-                </div>
                 <?php 
                 if (isset($_GET["error"])) {
-                    if ($_GET["error"] = "name-or-pw-is-wrong")
-                        echo "<div class='error-message'>Invalid name or password!</div>";
+                    if ($_GET["error"] == "name-or-pw-is-wrong") {
+                        echo "<p class='error-message'>Incorrect email or password.</p>";
+                    }
+                    if ($_GET["error"] == "fill-in-all-fields") {
+                        echo "<p class='error-message'>Incorrect email or password.</p>";
+                    }
                 }
                 ?>
-                <div class="button-group">
-                    <button type ="submit" name="submit">Submit when ready!</button>
-                </div>
-                
-                <div class="button-group2">
-                    <a href="signup.php">Don't have an account? Sign up!</a>
 
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email"></input>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password"></input>
+                </div>
+
+                <div class="rememberme">
+                    <input type="checkbox" name="remember_me">
+                    <span> Remember me
+                    </span>
+                </div>
+
+                <div class="button-group">
+                    <button type ="submit" name="submit">Log in!</button>
+                </div>
+
+                <div class="button-group2">
+                    <a href="signup.php">New to  <span class="logoname">GreenWear</span>? Sign up!</a>
                 </div>
             </form>
         </div>
