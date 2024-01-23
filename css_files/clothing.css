@@ -1,0 +1,68 @@
+#title {
+    display: flex;
+    justify-content: center;
+}
+
+#mother-div {
+    display: flex;
+    flex-direction: row;
+    padding-left: 15px;
+}
+
+#filter {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 10%;
+    
+   
+}
+
+#big-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 90%;
+    justify-content: center;
+
+}
+
+#cat-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+   
+
+}
+
+.cat {
+    background-color: grey;
+    width: 100px;
+    height: 50px;
+}
+
+#row-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    
+}
+
+.cloth-row {
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+
+.imghere {
+    background-color: pink;
+    height: 400px;
+    width: 350px;
+}
+
+.imghere:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
