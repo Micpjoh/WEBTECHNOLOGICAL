@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
     $pwrepeat = htmlspecialchars($_POST["password-repeat"], ENT_QUOTES, 'UTF-8');
     $username = htmlspecialchars($_POST["name"], ENT_QUOTES, 'UTF-8');
     $consent = $_POST["consent"];
-    $user_type = "user";
+    $user_type = "admin";
 
     // Belangrijke error messages in url, kan later $_GET gebruiken
     // Voor signup ook javascript validation, denk aan naam met 2+ letters
