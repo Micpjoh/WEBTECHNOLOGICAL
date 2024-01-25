@@ -1,7 +1,7 @@
 <section id="header">
     <div class="nav-container">
         <div class="logo">
-            <a href="home.php">GreenWear</a>
+            <a href="index.php">GreenWear</a>
         </div>
 
         <div class="navbarLEFT">
@@ -26,9 +26,16 @@
     <div class="navbarRIGHT">        
         <?php
         if (isset($_SESSION['user_id'])) {
-            echo '<a href="includes/logout.inc.php">Logout</a>';
-            echo '<a href="profile.php">Profile</a>';
-        } else {
+            if (isset($_SESSION['user_type']) && $_SESSION['user_type'] !== 'admin') {
+                echo '<a href="includes/logout.inc.php">Logout</a>';
+                echo '<a href="profile.php">Profile</a>';
+            }
+            else {
+                echo '<a href="includes/logout.inc.php">Logout</a>';
+                echo '<a href="admin.php">Admin</a>';
+            }
+        } 
+        else {
             echo '<a href="signup.php">Sign up</a>';
             echo '<a href="login.php">Login</a>';
         }
@@ -48,16 +55,23 @@
 
 <div class="nav-dropdown">
     <ul>
-        <li><a href="index.php">Catalog</a></li>
+        <li><a href="catalog.php">Catalog</a></li>
         <li><a href="design.php">Design</a></li>
         <li><a href="aboutus.php">About us</a></li>
         <li><a href="faq.php">FAQ</a></li>
         <li><a href="contact.php">Contact</a></li>
         <?php
         if (isset($_SESSION['user_id'])) {
-            echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
-            echo '<li><a href="profile.php">Profile</a></li>';
-        } else {
+            if (isset($_SESSION['user_type']) && $_SESSION['user_type'] !== 'admin') {
+                echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
+                echo '<li><a href="profile.php">Profile</a></li>';
+            }
+            else {
+                echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
+                echo '<li><a href="admin.php">Admin</a></li>';
+            }
+        } 
+        else {
             echo '<li><a href="signup.php">Sign up</a></li>';
             echo '<li><a href="login.php">Login</a></li>';
         }

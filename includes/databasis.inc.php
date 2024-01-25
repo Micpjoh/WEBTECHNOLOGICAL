@@ -6,10 +6,10 @@ $DBpassword = "WuIFtYONBjaBbCToqsonPaQxFhpHtTDi";
 $DBname = "";
 
 // !!! REMOTE connectie !!!
-//$servername=""
-//$DBpassword=""
-//$DBusername=""
-//$DBname=""
+// $servername="localhost"
+// $DBusername="efea"
+// $DBpassword="GyCNuUbReZhrbQwJwhEcnXWyCrvtxjiK"
+// $DBname=""
 
 $sqliconn = new mysqli($servername, $DBusername, $DBpassword, $DBname);
 

@@ -4,7 +4,7 @@ require_once 'includes/getorder.inc.php';
 require_once "includes/databasis.inc.php";
 
 if (!isset($_SESSION['user_id'])) {
-    header("Location: home.php");
+    header("Location: index.php");
     die();
 }
 
@@ -66,9 +66,9 @@ $orders = get_order($_SESSION['user_id'], $sqliconn);
                     <button><a href="contact.php">Contact page</a></button>
                 </div>
 
-                <div class="button-group">
-                    <button type ="submit" name="submit">Delete account!</button>
-                </div>
+                <form class="button-group" action="includes/deleteacc.inc.php" method="POST">
+                    <button type="submit" name="submit">Delete account!</button>
+                </form>
         </div>
         <div class ="order-box">
             <div class="scroll">
@@ -77,9 +77,9 @@ $orders = get_order($_SESSION['user_id'], $sqliconn);
                     if ($orders->num_rows > 0) {
                         while($row = $orders->fetch_assoc()) {
                             echo "<div class='orderoutput'>
-                            Order ID: " . htmlspecialchars($row["order_id"]) . "<br>
-                            Ordered: " . htmlspecialchars($row["order_created"]) . "<br>
-                            Arrival: " . htmlspecialchars($row["order_arrival"]) . "</div>";
+                            Order ID: " . $row["order_id"] . "<br>
+                            Ordered: " . $row["order_created"] . "<br>
+                            Arrival: " . $row["order_arrival"] . "</div>";
                         }
                     } 
                     else {

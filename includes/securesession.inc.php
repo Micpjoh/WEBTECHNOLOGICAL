@@ -28,6 +28,7 @@ if (isset($_COOKIE['rememberme'])) {
         // Logged de user in
         $_SESSION['user_id'] = $tokenData['user_id'];
         $_SESSION['user_name'] = $tokenData['username'];
+        $_SESSION['user_type'] = $tokenData['user_type'];
 
     } else {
         // Verwijder cookie, als niet valid

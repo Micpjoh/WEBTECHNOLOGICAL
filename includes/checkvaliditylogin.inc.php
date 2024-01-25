@@ -43,8 +43,8 @@ function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
     
             $expiresAt = time() + (86400 * 30);
             $datedexpiresAt = date('Y-m-d H:i:s', $expiresAt);
-            $stmt = $sqliconn->prepare("INSERT INTO tokenlogin (user_id, token, expirydate, username) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("isss", $user['user_id'], $token, $datedexpiresAt, $user["username"]);
+            $stmt = $sqliconn->prepare("INSERT INTO tokenlogin (user_id, token, expirydate, username, user_type) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("issss", $user['user_id'], $token, $datedexpiresAt, $user["username"], $user["user_type"]);
             $stmt->execute();
         }
         if ($_SESSION['user_type'] === 'admin') {

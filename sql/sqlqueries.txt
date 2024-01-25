@@ -1,29 +1,69 @@
 CREATE DATABASE IF NOT EXISTS greenwear;
 USE greenwear;
 
-CREATE TABLE users (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL UNIQUE,
-    email VARCHAR(255) NOT NULL UNIQUE,
-    pw VARCHAR(255) NOT NULL
+CREATE TABLE IF NOT EXISTS users (
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    pw VARCHAR(255) NOT NULL,
+    user_type ENUM('admin', 'user') NOT NULL
 );
 
-CREATE TABLE tokenlogin (
-    token_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
+CREATE TABLE IF NOT EXISTS tokenlogin (
+    token_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
     token VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
     expirydate DATETIME NOT NULL,
-    FOREIGN KEY (id) REFERENCES users(user_id)
+    username VARCHAR(255) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
+CREATE TABLE IF NOT EXISTS orders (
+    order_id VARCHAR(255) PRIMARY KEY,
+    user_id INT,
+    order_created DATETIME NOT NULL,
+    order_arrival DATETIME NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
 
-make 4 test accounts
-make 2 tokens
-make ?? products
+CREATE TABLE products (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    stock INT NOT NULL,
+    img VARCHAR(255),
+    category VARCHAR(255)
+);
+
+INSERT INTO products (product_name, description, price, stock, img, category)
+VALUES 
+    ('Cool Cotton Shirt', 'A comfortable and stylish cotton shirt.', 19.99, 100, 'images/shirt1.jpg', 'Shirts'),
+    ('Formal Shirt', 'Perfect for formal occasions and office wear.', 29.99, 50, 'images/shirt2.jpg', 'Shirts'),
+    ('Casual Sweatshirt', 'Ideal for casual outings, made of soft fabric.', 24.99, 75, 'images/sweatshirt1.jpg', 'Sweatshirts'),
+    ('Sporty Sweatshirt', 'Best for sports and outdoor activities.', 34.99, 80, 'images/sweatshirt2.jpg', 'Sweatshirts'),
+    ('Denim Pants', 'High-quality denim jeans.', 39.99, 60, 'images/pants1.jpg', 'Pants'),
+    ('Chinos', 'Classic chinos in a modern fit.', 49.99, 70, 'images/pants2.jpg', 'Pants');
+
+INSERT INTO your_table_name (order_id, user_id, order_created, order_arrival)
+VALUES
+('6f5e4d3c2b1a', 2, '2024-01-19 16:20:00', '2024-01-26 16:20:00'),
+('a1b2c3d4e5f6', 2, '2024-01-20 08:00:00', '2024-01-27 08:00:00'),
+('a1b2c3d4e5f7', 2, '2024-01-21 09:15:00', '2024-01-28 09:15:00'),
+('a1b2c3d4e5f8', 2, '2024-01-22 10:30:00', '2024-01-29 10:30:00'),
+('a1b2c3d4e5f9', 2, '2024-01-23 11:45:00', '2024-01-30 11:45:00'),
+('a1b2c3d4e5f10', 2, '2024-01-24 13:00:00', '2024-01-31 13:00:00');
+
+
+
+
+
+
+
 
 tables:
 1. users
 2. tokenlogin
 3. products
 4. cart
-5. ??
+5. orders
