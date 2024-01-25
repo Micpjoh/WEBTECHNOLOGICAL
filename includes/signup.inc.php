@@ -1,19 +1,18 @@
 <!-- signup.inc.php -->
 <?php
 require_once "securesession.inc.php";
+require_once "databasis.inc.php";
+require_once "checkvaliditysignup.inc.php";
 
 if (isset($_POST["submit"])) {
 
-    $username = $_POST["name"];
-    $email = $_POST["email"];
-    $emailrepeat = $_POST["email-repeat"];
-    $pw = $_POST["password"];
-    $pwrepeat = $_POST["password-repeat"];
+    $email = htmlspecialchars($_POST["email"], ENT_QUOTES, 'UTF-8');
+    $emailrepeat = htmlspecialchars($_POST["email-repeat"], ENT_QUOTES, 'UTF-8');
+    $pw = htmlspecialchars($_POST["password"], ENT_QUOTES, 'UTF-8');
+    $pwrepeat = htmlspecialchars($_POST["password-repeat"], ENT_QUOTES, 'UTF-8');
+    $username = htmlspecialchars($_POST["name"], ENT_QUOTES, 'UTF-8');
     $consent = $_POST["consent"];
-    $user_type = "User";
-
-    require_once "databasis.inc.php";
-    require_once "checkvaliditysignup.inc.php";
+    $user_type = "user";
 
     // Belangrijke error messages in url, kan later $_GET gebruiken
     // Voor signup ook javascript validation, denk aan naam met 2+ letters

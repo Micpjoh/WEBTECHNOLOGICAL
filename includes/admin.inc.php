@@ -9,9 +9,6 @@ function user_amount($sqliconn) {
         $amount = $count->fetch_row();
         return $amount[0];
     }
-    else {
-        return "No users found!";
-    }
 }
 
 function product_amount($sqliconn) {
@@ -21,9 +18,6 @@ function product_amount($sqliconn) {
         $amount = $count->fetch_row();
         return $amount[0];
     }
-    else {
-        return "No users found!";
-    }
 }
 
 function order_amount($sqliconn) {
@@ -32,9 +26,6 @@ function order_amount($sqliconn) {
         //COUNT heeft maar 1 row, en dat is de aantal
         $amount = $count->fetch_row();
         return $amount[0];
-    }
-    else {
-        return "No users found!";
     }
 }
 

@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$DBusername = "micahj";
-$DBpassword = "WuIFtYONBjaBbCToqsonPaQxFhpHtTDi";
-$DBname = "";
+$DBusername = "efea";
+$DBpassword = "GyCNuUbReZhrbQwJwhEcnXWyCrvtxjiK";
+$DBname = "greenwear";
 
 // !!! REMOTE connectie !!!
 // $servername="localhost"
