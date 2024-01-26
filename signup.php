@@ -12,8 +12,8 @@ function remember_forminput($input) {
     if (isset($_SESSION["inputsform"][$input]) && !isset($_SESSION["errors_rememberform"][$input]))
         echo $_SESSION["inputsform"][$input];
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

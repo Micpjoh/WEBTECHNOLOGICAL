@@ -1,6 +1,6 @@
 <!-- signup.inc.php -->
 <?php
-require_once "securesession.inc.php";
+session_start();
 require_once "databasis.inc.php";
 require_once "checkvaliditysignup.inc.php";
 
@@ -66,7 +66,6 @@ if (isset($_POST["submit"])) {
         user_creation($username, $email, $pw, $user_type, $sqliconn);
 
         header("Location: ../login.php");
-        $sqliconn = null;
         die();
 
     }
@@ -76,10 +75,11 @@ if (isset($_POST["submit"])) {
 
         // gebruikt in signup.php om input te onthouden dat correct is
         $_SESSION["errors_rememberform"] = $errorrememberform;
-        $_SESSION["inputsform"] = [ "usn" => $username, "email" => $email, "emailr" => $emailrepeat];
+        $_SESSION["inputsform"] = ["usn" => $username, 
+            "email" => $email, 
+            "emailr" => $emailrepeat];
 
         header("Location: ../signup.php?error=signup-failed");
-
     }
 }
 else {
