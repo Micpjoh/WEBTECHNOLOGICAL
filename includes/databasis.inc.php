@@ -9,7 +9,7 @@ $DBname = "greenwear";
 // $servername="localhost"
 // $DBusername="efea"
 // $DBpassword="GyCNuUbReZhrbQwJwhEcnXWyCrvtxjiK"
-// $DBname=""
+// $DBname="greenwear"
 
 $sqliconn = new mysqli($servername, $DBusername, $DBpassword, $DBname);
 
