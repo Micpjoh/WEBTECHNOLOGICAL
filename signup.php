@@ -53,12 +53,6 @@ function remember_forminput($input) {
                     }
                     unset($_SESSION["errors"]);
                 }
-
-                if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "signup-failed") {
-                        echo "<p class='error-message'>TEst bug</p>";
-                    }
-                }
                 ?>
                 
                 <div class="input-group">
