@@ -6,7 +6,7 @@
 
         <div class="navbarLEFT">
             <div class="dropdown">
-                <a  href="catalog.php">Catalog 
+                <a class="a" href="catalog.php">Catalog 
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <div class="dropdown-content">
@@ -16,10 +16,10 @@
                     <a href="#">Shoes</a>
                 </div> 
             </div> 
-                <a  href="design.php">Design</a>
-                <a href="aboutus.php">About us</a>
-                <a href="faq.php">FAQ</a>
-                <a href="contact.php">Contact</a>
+                <a class="a" href="design.php">Design</a>
+                <a class="a" href="aboutus.php">About us</a>
+                <a class="a" href="faq.php">FAQ</a>
+                <a class="a" href="contact.php">Contact</a>
         </div>
     </div>
 
@@ -27,17 +27,17 @@
         <?php
         if (isset($_SESSION['user_id'])) {
             if (isset($_SESSION['user_type']) && $_SESSION['user_type'] !== 'admin') {
-                echo '<a class="underline" href="includes/logout.inc.php">Logout</a>';
-                echo '<a class="underline" href="profile.php">Profile</a>';
+                echo '<a href="includes/logout.inc.php">Logout</a>';
+                echo '<a href="profile.php">Profile</a>';
             }
             else {
-                echo '<a class="underline" href="includes/logout.inc.php">Logout</a>';
-                echo '<a class="underline" href="admin.php">Admin</a>';
+                echo '<a href="includes/logout.inc.php">Logout</a>';
+                echo '<a href="admin.php">Admin</a>';
             }
         } 
         else {
-            echo '<a class="underline" href="signup.php">Sign up</a>';
-            echo '<a class="underline" href="login.php">Login</a>';
+            echo '<a href="signup.php">Sign up</a>';
+            echo '<a href="login.php">Login</a>';
         }
         ?>
         <a href="cart.php">
