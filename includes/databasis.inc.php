@@ -1,15 +1,9 @@
 <?php
 // DB/server info !!! LOCAL connectie !!!
 $servername = "localhost";
-$DBusername = "efea";
-$DBpassword = "GyCNuUbReZhrbQwJwhEcnXWyCrvtxjiK";
+$DBusername = "micahj";
+$DBpassword = "WuIFtYONBjaBbCToqsonPaQxFhpHtTDi";
 $DBname = "greenwear";
-
-// DB/server info !!! REMOTE connectie !!!
-// $servername="localhost"
-// $DBusername="efea"
-// $DBpassword="GyCNuUbReZhrbQwJwhEcnXWyCrvtxjiK"
-// $DBname=""
 
 $sqliconn = new mysqli($servername, $DBusername, $DBpassword, $DBname);
 
