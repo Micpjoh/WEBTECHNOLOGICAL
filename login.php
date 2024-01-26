@@ -38,13 +38,16 @@ if (isset($_SESSION['user_id'])) {
                 <h1>Log in to&nbsp; <span style="color: green;"> GreenWear</span></h1>
 
                 <?php 
-                    if (isset($_SESSION["errors"])) {
-                        foreach ($_SESSION["errors"] as $displayerror) {
-                            echo "<p class='error-message'>$displayerror</p>";
-                        }
-                        unset($_SESSION["errors"]);
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "name-or-pw-is-wrong") {
+                        echo "<p class='error-message'>Incorrect email or password.</p>";
                     }
+                    if ($_GET["error"] == "fill-in-all-fields") {
+                        echo "<p class='error-message'>Fill up all empty fields pls</p>";
+                    }
+                }
                 ?>
+
                 <div class="input-group">
                     <label for="email">Email</label>
                     <input type="email" name="email"></input>
