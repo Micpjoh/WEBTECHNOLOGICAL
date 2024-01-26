@@ -1,8 +1,8 @@
 <?php
 // DB/server info !!! LOCAL connectie !!!
 $servername = "localhost";
-$DBusername = "root";
-$DBpassword = "";
+$DBusername = "efea";
+$DBpassword = "GyCNuUbReZhrbQwJwhEcnXWyCrvtxjiK";
 $DBname = "greenwear";
 
 // DB/server info !!! REMOTE connectie !!!
