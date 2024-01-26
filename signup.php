@@ -6,12 +6,13 @@ if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
     die();
 }
-$errordisplay = $_SESSION["errors_rememberform"];
+
 // Als input correct is behoud het, en verwijder input, dat niet correct is en zorgt voor error
 function remember_forminput($input) {
-    if (isset($_SESSION["inputsform"][$input]) && !isset($errordisplay[$input]))
+    if (isset($_SESSION["inputsform"][$input]) && !isset($_SESSION["errors_rememberform"][$input]))
         echo $_SESSION["inputsform"][$input];
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +52,12 @@ function remember_forminput($input) {
                         echo "<p class='error-message'>$displayerror</p>";
                     }
                     unset($_SESSION["errors"]);
+                }
+
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "signup-failed") {
+                        echo "<p class='error-message'>TEst bug</p>";
+                    }
                 }
                 ?>
                 

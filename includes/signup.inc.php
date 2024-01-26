@@ -63,7 +63,6 @@ if (isset($_POST["submit"])) {
     }
     // als input correct is, creer user
     if (!$errordisplay) {
-        unset($_SESSION["inputsform"]);
         user_creation($username, $email, $pw, $user_type, $sqliconn);
 
         header("Location: ../login.php");
