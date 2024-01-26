@@ -82,7 +82,8 @@ button {
 }
 
 button:hover {
-    background-color: lightgreen;
+    color: white;
+    background-color: #081c3c;
     transform: translateY(-5px);
     transition: transform 0.2s ease-in-out;
 
