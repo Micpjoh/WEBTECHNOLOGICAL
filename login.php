@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once "includes/securesession.inc.php";
 
 // Als user al ingelogd is, stuur hem terug naar homepage
 if (isset($_SESSION['user_id'])) {

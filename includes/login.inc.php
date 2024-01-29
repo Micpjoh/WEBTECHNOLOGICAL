@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require_once "databasis.inc.php";
 require_once "checkvaliditylogin.inc.php";
 
