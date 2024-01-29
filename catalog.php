@@ -33,7 +33,7 @@
     <section id="content">
         <div id="cloth-container">
             <div class="cloth-rows">
-                <div class="cloth">
+                <div class="cloth" onclick = "location.href='sweaters.php'">
                     <div class="img-here"></div>
                     <div class="name-container">
                         <h2>Sweatshirts & Hoodies</h2>
@@ -42,7 +42,7 @@
        
                 </div>
 
-                <div class="cloth">
+                <div class="cloth" onclick = "location.href='shirts.php'">
                     <div class="img-here"></div>
                     <div class="name-container">
                         <h2>T-shirts & Tops</h2>
@@ -54,7 +54,7 @@
             </div>
 
             <div class="cloth-rows">
-                <div class="cloth">
+                <div class="cloth" onclick = "location.href='pants.php'">
                     <div class="img-here"></div>
                     <div class="name-container">
                         <h2>Pants & Bottoms</h2>
@@ -63,7 +63,7 @@
        
                 </div>
 
-                <div class="cloth">
+                <div class="cloth" onclick = "location.href='accessories.php'">
                     <div class="img-here"></div>
                     <div class="name-container">
                         <h2>Accessories</h2>

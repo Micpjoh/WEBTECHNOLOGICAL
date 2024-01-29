@@ -208,12 +208,13 @@ body {
     color: white;
 }
 
+.groups-footer2 a,
 .groups-footer1 a {
     text-decoration: none;
     color: #a0a0a0;
 }
 
-.groups-footer2 a {
-    text-decoration: none;
-    color: #a0a0a0;
+.groups-footer2 a:hover,
+.groups-footer1 a:hover {
+    color: orange;
 }

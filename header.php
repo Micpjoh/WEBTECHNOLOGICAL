@@ -10,10 +10,10 @@
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <div class="dropdown-content">
-                    <a href="#">Shirts</a>
-                    <a href="#">Sweaters</a>
-                    <a href="#">Pants</a>
-                    <a href="#">Shoes</a>
+                <a href="sweaters.php">Sweaters</a>
+                    <a href="shirts.php">Shirts</a>
+                    <a href="pants.php">Pants</a>
+                    <a href="accesories.php">accesories</a>
                 </div> 
             </div> 
                 <a href="design.php">Design</a>

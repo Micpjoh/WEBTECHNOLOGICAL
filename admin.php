@@ -68,8 +68,8 @@ $orderscount = order_amount($sqliconn);
     </section>
 
     <section id="product-container">
-        <div class = "product-box">
-            <h1>All products currently in store</h1>
+        <h1>All products currently in store</h1>
+        <div class = "product-box1">
             <div class="scrollable-div">
                 <table>
 
@@ -91,7 +91,7 @@ $orderscount = order_amount($sqliconn);
                         echo "<td>" . $row['product_info'] . "</td>";
                         echo "<td>" . $row['price'] . "</td>";
                         echo "<td>" . $row['stock'] . "</td>";
-                        echo "<td> <img src='" . $row['img'] . "' alt='Product Image' /> </td>";
+                        echo "<td> <img style='width: 120px;' src='" . $row['img'] . "' alt='foto van product' /> </td>";
                         echo "<td>" . $row['category'] . "</td>";
                         echo "<td> <a href='includes/admindelproduct.inc.php?product_id=" . $row['product_id'] . "'>Delete</a> </td>";
                         echo "</tr>";
@@ -104,31 +104,31 @@ $orderscount = order_amount($sqliconn);
     </section>
     
     <section id="add-product-section">
-    <div class = "product-box">
-        <h1>Add New Product</h1>
-        <form method="post" action="includes/adminaddproduct.inc.php">
-            <label for="product_name">Product Name:</label>
-            <input type="text" name="product_name" required><br>
+        <div class = "product-box2">
+            <h1>Add New Product</h1>
+            <form method="post" action="includes/adminaddproduct.inc.php">
+                <label for="product_name">Product Name:</label>
+                <input type="text" name="product_name" required><br>
 
-            <label for="product_info">Product Info:</label>
-            <textarea name="product_info" required></textarea><br>
+                <label for="product_info">Product Info:</label>
+                <textarea name="product_info" required></textarea><br>
+                        
+                <label for="price">Price:</label>
+                <input type="number" step="0.01" name="price" required><br>
 
-            <label for="price">Price:</label>
-            <input type="number" step="0.01" name="price" required><br>
+                <label for="stock">Stock:</label>
+                <input type="number" name="stock" required><br>
 
-            <label for="stock">Stock:</label>
-            <input type="number" name="stock" required><br>
+                <label for="img">Image URL:</label>
+                <input type="text" name="img"><br>
 
-            <label for="img">Image URL:</label>
-            <input type="text" name="img"><br>
+                <label for="category">Category:</label>
+                <input type="text" name="category" required><br>
 
-            <label for="category">Category:</label>
-            <input type="text" name="category" required><br>
-
-            <button type="submit" name="submit">Submit when ready!</button>
-        </form>
-    </div>
-</section>
+                <button type="submit" name="submit">Submit when ready!</button>
+            </form>
+        </div>
+    </section>
 
     <!-- FOOTER -->
     <?php include "footer.php"; ?>

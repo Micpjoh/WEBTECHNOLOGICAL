@@ -75,7 +75,7 @@ button {
     border: calc(4rem/16) solid #f3f1ef;
     border-radius: 8px;
     cursor: pointer;
-    width: 50%;
+    width: 80%;
     height: 3.5rem;
     font-size: calc(18rem/16);
 
