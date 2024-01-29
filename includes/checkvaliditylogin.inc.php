@@ -34,13 +34,14 @@ function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
     // Check of password klopt
     $pwhash = $user["pw"];
     $checkpw = password_verify($pw, $pwhash);
-    $_SESSION['user_id'] = $user['user_id'];
-    $_SESSION['user_name'] = $user['username'];
-    $_SESSION['user_type'] = $user['user_type'];
+
 
 
     // Als password klopt check voor remember me cookies en log user in als admin of normaal
     if ($checkpw) {
+        $_SESSION['user_id'] = $user['user_id'];
+        $_SESSION['user_name'] = $user['username'];
+        $_SESSION['user_type'] = $user['user_type'];
         
         // als remember me aangeklikt, maak rememberme cookies aan.
         if ($rememberMe) {
@@ -54,17 +55,17 @@ function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
             $stmt->execute();
         }
 
-        // log in als admin als user_type "admin" is
-        if ($_SESSION['user_type'] === 'admin') {
-            header("Location: ../admin.php");
-            die();
-        } 
+    // log in als admin als user_type "admin" is
+    if ($_SESSION['user_type'] === 'admin') {
+        header("Location: ../admin.php");
+        die();
+    } 
 
-        // log in als user als user_type "user" is
-        else {
-            header("Location: ../profile.php");
-            die();
-        }
+    // log in als user als user_type "user" is
+    if ($_SESSION['user_type'] === 'user'){
+        header("Location: ../profile.php");
+        die();
+    }
     } 
     else {
         header("Location: ../login.php?error=name-or-pw-is-wrong");
