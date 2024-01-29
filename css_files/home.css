@@ -1,150 +1,78 @@
-.banner img {
-    max-width: 100%;
-}
-
-.img-src {
-    position: center;
-    background-position: center;
-    -webkit-background-size: cover;
+.mainimage{
+    background-image:url("../img/p5.jpg");
+    min-height: 200px;
+    background-attachment: fixed;
     background-size: cover;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: -1;
+}
+.imgtxt{
+    padding-top: 300px;
+    text-align: center;
+    font-size: 120px;
+    color: white;
+}
+.textbasic{
+    font-size: 70px;
+    padding-bottom: 20px;
+}
+.container{
+    background-color: #081c3c;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    align-items: center;
 }
 
-.blurred-img { opacity: 0; }
-
-.article {
-  width:500px;
-  height: 2000px;
+.rightpic{
+    align-items: center;
+    min-height: 400px;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
-h1 {
-  font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-  color: #fff;
-  position: fixed;
-  z-index: 9999;
-  font-size: 50px;
-  top: 50%;
-  margin-top: -25px;
-  left: 50%;
-  margin-left: -103px;
+.leftpic{
+    min-height: 0px;
+    align-items: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
-h2 {
-  font-family: "jaf-bernino-sans","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-  color: #fff;
-  position: fixed;
-  z-index: 9999;
-  font-size: 20px;
-  top: 56%;
-  margin-top: -25px;
-  left: 47%;
-  margin-left: -103px;
+.txtpart{
+    text-align: center;
+    padding-left: 40px;
+    color: white;
 }
 
-body {
-  font-family: Arial;
-  margin: 0;
-}
 
-* {
-  box-sizing: border-box;
+button{
+    background-color: white;
+    border: 10px white;
+    border-radius: 100vw;
+    font-size: 50px;    
 }
-
-img {
-  vertical-align: middle;
+button:hover{
+    background-color: #659DBD;
 }
-
-/* Position the image container (needed to position the left and right arrows) */
-.container {
-  position: relative;
+a.noline{
+    text-decoration: none;
+    display: block;
+    padding: 20px 40px;
+    color: black;
 }
-
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
-
-/* Add a pointer when hovering over the thumbnail images */
-.cursor {
-  cursor: pointer;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 40%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-/* Container for image text */
-.caption-container {
-  text-align: center;
-  background-color: #222;
-  padding: 2px 16px;
-  color: white;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.column {
-  float: left;
-  width: 25%;
-}
-
-/* Add a transparency effect for thumnbail images */
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-body {
-  background-image: url('/home/micah/Downloads/Mycloth _main.jpg');
-  background-repeat: no-repeat;
-  background-attachment: scroll;  
-  background-size: 80%;
-  background-position-y:  top;
-  background-position-x: center;
-
-}
+@media only screen and (min-width: 1200px) {
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 40px;
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+    .mainimage{
+        min-height: 800px;
+    }
+    .leftpic{
+        display: flex;
+    }
+    .rightpic{
+        display: flex;
+    }    
+    }
