@@ -1,5 +1,5 @@
 <?php
-require_once "securesession.inc.php";
+session_start();
 require_once "databasis.inc.php";
 
 // check of user via button is gekomen niet URL.
@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
     $preparedstatement = $sqliconn->prepare("DELETE FROM users WHERE user_id = ?");
     $preparedstatement->bind_param("i", $_SESSION['user_id']);
     $preparedstatement->execute();
+    
     session_unset();
     session_destroy();
     header("Location: ../login.php");
