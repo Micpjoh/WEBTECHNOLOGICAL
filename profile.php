@@ -44,7 +44,7 @@ $orders = get_order($_SESSION['user_id'], $sqliconn);
                 <h1>Functions</h1>
 
                 <div class="function-group">
-                    <button><a href="home.php">Home page</a></button>
+                    <button><a href="index.php">Home page</a></button>
                 </div>
 
                 <div class="function-group">

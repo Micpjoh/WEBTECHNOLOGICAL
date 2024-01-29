@@ -34,7 +34,17 @@ function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
     // Check of password klopt
     $pwhash = $user["pw"];
     $checkpw = password_verify($pw, $pwhash);
+    // als remember me aangeklikt, maak rememberme cookies aan.
+    if ($rememberMe) {
+        $token = bin2hex(random_bytes(64));
+        setcookie('rememberme', $token, time() + (86400 * 30), "/"); // 86400 = 1 dag
 
+        $expiresAt = time() + (86400 * 30);
+        $datedexpiresAt = date('Y-m-d H:i:s', $expiresAt);
+        $stmt = $sqliconn->prepare("INSERT INTO tokenlogin (token, user_id, expirydate, username, user_type) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sisss", $token, $user['user_id'], $datedexpiresAt, $user["username"], $user["user_type"]);
+        $stmt->execute();
+    }
 
 
     // Als password klopt check voor remember me cookies en log user in als admin of normaal
@@ -42,30 +52,18 @@ function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_name'] = $user['username'];
         $_SESSION['user_type'] = $user['user_type'];
-        
-        // als remember me aangeklikt, maak rememberme cookies aan.
-        if ($rememberMe) {
-            $token = bin2hex(random_bytes(64));
-            setcookie('rememberme', $token, time() + (86400 * 30), "/"); // 86400 = 1 dag
-    
-            $expiresAt = time() + (86400 * 30);
-            $datedexpiresAt = date('Y-m-d H:i:s', $expiresAt);
-            $stmt = $sqliconn->prepare("INSERT INTO tokenlogin (user_id, token, expirydate, username, user_type) VALUES (?, ?, ?, ?, ?)");
-            $stmt->bind_param("issss", $user['user_id'], $token, $datedexpiresAt, $user["username"], $user["user_type"]);
-            $stmt->execute();
+
+        // log in als admin als user_type "admin" is
+        if ($_SESSION['user_type'] === 'admin') {
+            header("Location: ../admin.php");
+            die();
+        } 
+
+        // log in als user als user_type "user" is
+        if ($_SESSION['user_type'] === 'user'){
+            header("Location: ../profile.php");
+            die();
         }
-
-    // log in als admin als user_type "admin" is
-    if ($_SESSION['user_type'] === 'admin') {
-        header("Location: ../admin.php");
-        die();
-    } 
-
-    // log in als user als user_type "user" is
-    if ($_SESSION['user_type'] === 'user'){
-        header("Location: ../profile.php");
-        die();
-    }
     } 
     else {
         header("Location: ../login.php?error=name-or-pw-is-wrong");
