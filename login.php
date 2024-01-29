@@ -3,7 +3,7 @@ require_once "includes/securesession.inc.php";
 
 // Als user al ingelogd is, stuur hem terug naar homepage
 if (isset($_SESSION['user_id'])) {
-    header("Location: profile.php");
+    header("Location: index.php");
     die();
 }
 ?>
@@ -58,14 +58,6 @@ if (isset($_SESSION['user_id'])) {
                 <div class="input-group">
                     <label for="password">Password</label>
                     <input type="password" name="password"></input>
-                </div>
-
-                <div class="rememberme">
-                    <input type="checkbox" name="remember_me">
-                    <span> Remember me.</span>
-                </div>
-                <div class="rememberme">
-                    <span>Be careful, your choice<br> might oppose your cookie preferences!</span>
                 </div>
 
                 <div class="button-group">

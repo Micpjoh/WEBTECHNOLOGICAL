@@ -34,6 +34,7 @@ function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
     // Check of password klopt
     $pwhash = $user["pw"];
     $checkpw = password_verify($pw, $pwhash);
+    
     // als remember me aangeklikt, maak rememberme cookies aan.
     if ($rememberMe) {
         $token = bin2hex(random_bytes(64));

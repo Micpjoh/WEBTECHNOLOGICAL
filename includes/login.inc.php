@@ -15,7 +15,7 @@ if (isset($_POST["submit"])) {
     }
 
     // Als user remember me heeft aangeklikt onthoud het en maak in functie "log_validuser_in" cookies aan
-    $rememberMe = isset($_POST['remember_me']) && $_POST['remember_me'] == 'on';
+    $rememberMe = isset($_POST['remember_me']);
     log_validuser_in($sqliconn, $email, $pw, $rememberMe);
 
 } 
