@@ -1,5 +1,5 @@
 <?php
-require_once "securesession.inc.php";
+session_start();
 require_once "databasis.inc.php";
 
 // verwijder eerst rememberme cookie
