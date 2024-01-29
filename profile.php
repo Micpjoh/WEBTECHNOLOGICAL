@@ -3,6 +3,7 @@ require_once "includes/securesession.inc.php";
 require_once 'includes/getorder.inc.php';
 require_once "includes/databasis.inc.php";
 
+// check of user is ingelogd, stuur de user terug naar de homepage (login is beter!)
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     die();
@@ -74,7 +75,9 @@ $orders = get_order($_SESSION['user_id'], $sqliconn);
             <div class="scroll">
                 <h2>Past orders</h2>
                 <?php
+                    // check of er een order is in de database
                     if ($orders->num_rows > 0) {
+                        // maak associative array, om info eruit te halen
                         while($row = $orders->fetch_assoc()) {
                             echo "<div class='orderoutput'>
                             Order ID: " . $row["order_id"] . "<br>
@@ -82,6 +85,7 @@ $orders = get_order($_SESSION['user_id'], $sqliconn);
                             Arrival: " . $row["order_arrival"] . "</div>";
                         }
                     } 
+                    // als geen order in database dan display no orders found
                     else {
                         echo "<div>No orders found</div>";
                     }

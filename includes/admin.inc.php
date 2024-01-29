@@ -1,6 +1,5 @@
 <?php
 // dit page regelt het counten van producten in de database (Catalog) via de admin profilepage
-// db connectie is: $sqliconn
 
 function user_amount($sqliconn) {
     $count = $sqliconn->query("SELECT COUNT(user_id) FROM users");

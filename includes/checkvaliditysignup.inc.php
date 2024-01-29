@@ -73,9 +73,11 @@ function existing_username($username, $sqliconn) {
     $preparedstatement->close();
     if($username) {
         return true;
+
     }
     else {
         return false;
+
     }
 }
 
@@ -89,9 +91,11 @@ function existing_email($email, $sqliconn) {
     $preparedstatement->close();
     if($emailname) {
         return true;
+
     }
     else {
         return false;
+
     }
 }
 
@@ -108,8 +112,8 @@ function user_creation($username, $email, $pw, $user_type, $sqliconn) {
 // Check of "pw" gelijk is aan "confirm pw"
 function check_pw_matching($pw, $pwrepeat) {
     if ($pw === $pwrepeat) {
-
         return false;
+
     }
     else {
         return true;

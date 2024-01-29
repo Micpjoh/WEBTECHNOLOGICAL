@@ -25,7 +25,7 @@ if (isset($_COOKIE['rememberme'])) {
     $tokenData = $result->fetch_assoc();
 
     if ($tokenData && time() < strtotime($tokenData['expirydate'])) {
-        // Logged de user in
+        // Log de user in
         $_SESSION['user_id'] = $tokenData['user_id'];
         $_SESSION['user_name'] = $tokenData['username'];
         $_SESSION['user_type'] = $tokenData['user_type'];

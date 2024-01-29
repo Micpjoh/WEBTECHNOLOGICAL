@@ -1,6 +1,7 @@
 <?php
 require_once "includes/securesession.inc.php";
 
+// Als user al ingelogd is, stuur hem terug naar homepage
 if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
     die();
@@ -37,6 +38,7 @@ if (isset($_SESSION['user_id'])) {
             <form action="includes/login.inc.php" method="post">
                 <h1>Log in to&nbsp; <span style="color: green;"> GreenWear</span></h1>
 
+                <!-- display input errors -->
                 <?php 
                 if (isset($_GET["error"])) {
                     if ($_GET["error"] == "name-or-pw-is-wrong") {
@@ -60,8 +62,10 @@ if (isset($_SESSION['user_id'])) {
 
                 <div class="rememberme">
                     <input type="checkbox" name="remember_me">
-                    <span> Remember me
-                    </span>
+                    <span> Remember me.</span>
+                </div>
+                <div class="rememberme">
+                    <span>Be careful, your choice<br> might oppose your cookie preferences!</span>
                 </div>
 
                 <div class="button-group">

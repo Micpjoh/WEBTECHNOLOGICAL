@@ -7,7 +7,7 @@ require_once "checkvaliditysignup.inc.php";
 // Check of user niet via URL is gekomen
 if (isset($_POST["submit"])) {
 
-    // Sanitize input
+    // Gegeven inputs / sanitized
     $email = htmlspecialchars($_POST["email"], ENT_QUOTES, 'UTF-8');
     $emailrepeat = htmlspecialchars($_POST["email-repeat"], ENT_QUOTES, 'UTF-8');
     $pw = htmlspecialchars($_POST["password"], ENT_QUOTES, 'UTF-8');
@@ -18,8 +18,8 @@ if (isset($_POST["submit"])) {
 
     // Als form niet succesvol is ingevuld, voeg de errors toe aan $errordisplay array.
 
-    // $errorrememberform wordt gebruikt om input die correct is te onthouden, dit is
-    // om user experience te verbeteren.
+    // $errorrememberform wordt gebruikt om te beslissen of input moet worden behouden, 
+    // of niet. Dit is om user experience te verbeteren.
     $errordisplay =  [];
     $errorrememberform = [];
 
@@ -61,7 +61,8 @@ if (isset($_POST["submit"])) {
         $errordisplay["notmatch_pw"] = "Passwords dont match.";
 
     }
-    // als input correct is, creer user
+    
+    // als input correct is zonder enige errors, creeer user
     if (!$errordisplay) {
         user_creation($username, $email, $pw, $user_type, $sqliconn);
 
@@ -71,9 +72,10 @@ if (isset($_POST["submit"])) {
     }
     // als input fout is, stuur terug naar signup.php
     else {
+        // gebruikt in signup.php om errors te displayen
         $_SESSION["errors"] = $errordisplay;
 
-        // gebruikt in signup.php om input te onthouden dat correct is
+        // gebruikt in signup.php om te beslissen of input van user moet worden behouden of niet.
         $_SESSION["errors_rememberform"] = $errorrememberform;
         $_SESSION["inputsform"] = ["usn" => $username, 
             "email" => $email, 

@@ -13,7 +13,6 @@
 
 <body>
     <!-- NAVIGATION BAR -->
-<<<<<<< HEAD
     <?php include "header.php"; ?>
 
     <!-- BODY SECTION -->
@@ -79,7 +78,7 @@
        
     </section>
 
-<<<<<<< HEAD
+
     <!-- FOOTER -->
 
     <?php include "footer.php"; ?>

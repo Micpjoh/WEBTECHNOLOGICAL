@@ -68,3 +68,17 @@
     padding: 20px;
 }
 
+@media only screen and (max-width: 1000px) {
+    #cloth-container {
+        padding: 5% 5%; 
+    }
+
+    .cloth-rows {
+        flex-direction: column;
+    }
+
+    .cloth {
+        width: 100%;
+    }
+
+}

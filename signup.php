@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// Als user al ingelogt is, stuur hem terug naar homepage
+// Als user al ingelogd is, stuur hem terug naar homepage
 if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
     die();
 }
 
-// Als input correct is behoud het, en verwijder input, dat niet correct is en zorgt voor error
+// Als input correct is behoud het, als input zorgt voor error verwijder het.
 function remember_forminput($input) {
     if (isset($_SESSION["inputsform"][$input]) && !isset($_SESSION["errors_rememberform"][$input]))
         echo $_SESSION["inputsform"][$input];
@@ -20,7 +20,7 @@ function remember_forminput($input) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Sign up</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css_files/main.css">
     <link rel="stylesheet" href="css_files/signup.css">
@@ -40,16 +40,17 @@ function remember_forminput($input) {
 
     <!-- BODY SECTION -->
     <section id="signup-container">
-        <div class = signup-box>
 
+        <div class = signup-box>
             <form id="signup-form" action="includes/signup.inc.php" method="post">
                 <h1>Sign up to&nbsp; <span style="color: green;"> GreenWear</span></h1>
                 
-                <!-- Laat errors zien van signup form -->
+                <!-- Laat errors zien van signup form (Alleen de eerste error) -->
                 <?php 
                 if (isset($_SESSION["errors"])) {
                     foreach ($_SESSION["errors"] as $displayerror) {
                         echo "<p class='error-message'>$displayerror</p>";
+                        break;
                     }
                     unset($_SESSION["errors"]);
                 }
@@ -63,12 +64,12 @@ function remember_forminput($input) {
                 <div class="input-group">
                     <label for="email">Email</label>
                     <input type="email" name="email" value="<?php remember_forminput("email") ?>"></input>
-                </div class="input-group">
+                </div>
 
                 <div class="input-group">
                     <label for="email-match">Confirm email</label>
                     <input type="email" name="email-repeat" value="<?php remember_forminput("emailr") ?>"></input>
-                </div class="input-group">
+                </div>
 
                 <div class="input-group">
                     <label for="pw">Password</label>
@@ -95,8 +96,8 @@ function remember_forminput($input) {
                     <a href="login.php">Already a <span class="logoname">GreenWear</span> user? Log in</a>
                 </div>
             </form>
-            
         </div>
+
     </section>
 
 
