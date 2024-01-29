@@ -35,13 +35,12 @@ function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
     $pwhash = $user["pw"];
     $checkpw = password_verify($pw, $pwhash);
 
-
+    $_SESSION['user_id'] = $user['user_id'];
+    $_SESSION['user_name'] = $user['username'];
+    $_SESSION['user_type'] = $user['user_type'];
 
     // Als password klopt check voor remember me cookies en log user in als admin of normaal
     if ($checkpw) {
-        $_SESSION['user_id'] = $user['user_id'];
-        $_SESSION['user_name'] = $user['username'];
-        $_SESSION['user_type'] = $user['user_type'];
         
         // als remember me aangeklikt, maak rememberme cookies aan.
         if ($rememberMe) {
