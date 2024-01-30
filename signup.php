@@ -73,8 +73,8 @@ function remember_forminput($input) {
 
                 <div class="input-group">
                     <label for="pw">Password</label>
-                    <input type="password" name="password" id="password" onkeyup="checkPasswordStrength();"></input>
-                    <span id="password-strength"></span>
+                    <input type="password" name="password" id="password" onkeyup="checkpwrequirement();"></input>
+                    <span id="passwordrequirementcheck"></span>
                 </div>
 
 
@@ -105,48 +105,8 @@ function remember_forminput($input) {
 
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
-    <script>
-        function checkPasswordStrength() {
-            var password = document.getElementById('password').value;
-            var strengthText = document.getElementById('password-strength');
 
-            if (password.length < 5) {
-                strengthText.innerHTML = "Minimum 5 characters required";
-                strengthText.style.color = "red";
-                return;
-            }
-
-            if (!password.match(/[a-z]/)) {
-                strengthText.innerHTML = "At least one lowercase letter required";
-                strengthText.style.color = "red";
-                return;
-            }
-
-            if (!password.match(/[A-Z]/)) {
-                strengthText.innerHTML = "At least one uppercase letter required";
-                strengthText.style.color = "red";
-                return;
-            }
-
-            if (!password.match(/[0-9]/)) {
-                strengthText.innerHTML = "At least one digit required";
-                strengthText.style.color = "red";
-                return;
-            }
-
-            if (!password.match(/[\W]/)) {
-                strengthText.innerHTML = "At least one special character required";
-                strengthText.style.color = "red";
-                return;
-            }
-
-            strengthText.innerHTML = "Ugly ahhhh";
-            strengthText.style.color = "green";
-        }
-
-    </script>
-
-
+    <script src="validatesignup.js"></script>
 </body>
 
 </html>
