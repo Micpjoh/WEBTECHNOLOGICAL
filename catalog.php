@@ -1,3 +1,14 @@
+<?php
+
+require_once "includes/securesession.inc.php";
+
+if (isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    die();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +20,7 @@
     <link rel="stylesheet" href="css_files/main.css">
     <link rel="stylesheet" href="css_files/catalog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/catalog.js"></script>
 </head>
 
 <body>
@@ -18,69 +30,48 @@
     <!-- BODY SECTION -->
     <section>
         <div id="header-cloth">
-            <div id="header-left">
-                <h1>Our products</h1>
-                <h3>upgrade your wardrobe with your favorite prints on our high quality basics</h3>
-                
-            </div>  
-            <div id="header-right">
-                <img src="img/hanger.png" id="header-icon">
-            </div>  
-            
+            <h1>Our products</h1>
+            <h2>upgrade your wardrobe with your favorite prints on our high quality basics</h2>
         </div>
     </section>
 
-    <section id="content">
-        <div id="cloth-container">
-            <div class="cloth-rows">
-                <div class="cloth" onclick = "location.href='sweaters.php'">
-                    <div class="img-here"></div>
-                    <div class="name-container">
-                        <h2>Sweatshirts & Hoodies</h2>
-                    
-                    </div>
-       
-                </div>
+    <section id='content'>
+        <div id='cloth-container'>
+            <div class='cloth-rows'>
+                <?php
 
-                <div class="cloth" onclick = "location.href='shirts.php'">
-                    <div class="img-here"></div>
-                    <div class="name-container">
-                        <h2>T-shirts & Tops</h2>
-                    
-                    </div>
-       
-                </div>
+                require_once "includes/databasis.inc.php";
 
-            </div>
+                // Query for products with stock greater than 0
+                $category = "SELECT * FROM category";
+                $result = $sqliconn->query($category);
 
-            <div class="cloth-rows">
-                <div class="cloth" onclick = "location.href='pants.php'">
-                    <div class="img-here"></div>
-                    <div class="name-container">
-                        <h2>Pants & Bottoms</h2>
-                    
-                    </div>
-       
-                </div>
+                // Error handling
+                if (!$result) {
+                    die('Error fetching products: ' . $sqliconn->error);
+                }
 
-                <div class="cloth" onclick = "location.href='accessories.php'">
-                    <div class="img-here"></div>
-                    <div class="name-container">
-                        <h2>Accessories</h2>
-                    
-                    </div>
-       
-                </div>
+                while($row= $result->fetch_assoc()){
+                    $category_name = $row['category_name'];
+                    $category_img = $row['img'];
+                    $cat_id = $row['category_id'];
 
+                    echo "
+                    <a class='cloth' href='clothing-template.php?cat=$cat_id'>
+                        <div class='img-here'>
+                            <img src='$category_img'>
+                        </div>
+                        <div class='name-container'>
+                            <h2 class='name'>$category_name</h2>
+                        </div>
+                    </a>";
+                };      
+                ?>
             </div>
         </div>        
-   
-       
     </section>
-
-
+   
     <!-- FOOTER -->
-
     <?php include "footer.php"; ?>
     
 </body>

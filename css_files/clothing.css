@@ -57,10 +57,17 @@
 
 }
 
+
 .imghere {
     background-color: pink;
     height: 400px;
     width: 350px;
+}
+
+.imghere img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .imghere:hover {
