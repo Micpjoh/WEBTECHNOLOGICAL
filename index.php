@@ -23,8 +23,8 @@
     <div class="container">
         <div class="txtpart">
             <div class="textbasic">
-            <h1>GreenWear</h1>
-            <h4>Discover your own style in our catalog full of different styles and clothing!!</h4>
+            <h1>Shop your look</h1>
+            <h4>Discover your own style in our catalogue full of different styles and clothing!!</h4>
             </div>
             <button>
                 <a href="catalog.php" class="noline">see more</a>
@@ -33,10 +33,6 @@
         <div class="rightpic">
             <img src="img/p3.jpg">
         </div>
-    </div>
-
-    
-    <div class="container">
         <div class ="leftpic">
             <img src="img/p1.jpg">
         </div>

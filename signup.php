@@ -73,8 +73,10 @@ function remember_forminput($input) {
 
                 <div class="input-group">
                     <label for="pw">Password</label>
-                    <input type="password" name="password"></input>
+                    <input type="password" name="password" id="password" onkeyup="checkpwrequirement();"></input>
+                    <span id="passwordrequirementcheck"></span>
                 </div>
+
 
                 <div class="input-group">
                     <label for="pw-match">Confirm password</label>
@@ -104,8 +106,7 @@ function remember_forminput($input) {
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
 
-    <!-- <script src="js/validateinputsignin.js"></script> -->
-
+    <script src="validatesignup.js"></script>
 </body>
 
 </html>
