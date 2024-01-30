@@ -33,10 +33,6 @@
         <div class="rightpic">
             <img src="img/p3.jpg">
         </div>
-    </div>
-
-    
-    <div class="container">
         <div class ="leftpic">
             <img src="img/p1.jpg">
         </div>
