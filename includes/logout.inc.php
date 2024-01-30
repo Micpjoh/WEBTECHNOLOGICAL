@@ -1,16 +1,16 @@
 <?php
-require_once "securesession.inc.php";
+session_start();
 require_once "databasis.inc.php";
-// If the Remember Me cookie is set, delete the token from the database
+
+// verwijder eerst rememberme cookie
 if (isset($_COOKIE['rememberme'])) {
     $token = $_COOKIE['rememberme'];
-    $stmt = $sqliconn->prepare("DELETE FROM tokenlogin WHERE token = ?");
-    $stmt->bind_param("s", $token);
-    $stmt->execute();
-
-    // Clear the Remember Me cookie
+    $preparedstatement = $sqliconn->prepare("DELETE FROM tokenlogin WHERE token = ?");
+    $preparedstatement->bind_param("s", $token);
+    $preparedstatement->execute();
     setcookie('rememberme', '', time() - 3600, "/");
 }
+// log user uit
 session_unset();
 session_destroy();
 header("Location: ../login.php");

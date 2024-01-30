@@ -75,14 +75,15 @@ button {
     border: calc(4rem/16) solid #f3f1ef;
     border-radius: 8px;
     cursor: pointer;
-    width: 50%;
+    width: 80%;
     height: 3.5rem;
     font-size: calc(18rem/16);
 
 }
 
 button:hover {
-    background-color: lightgreen;
+    color: white;
+    background-color: #081c3c;
     transform: translateY(-5px);
     transition: transform 0.2s ease-in-out;
 

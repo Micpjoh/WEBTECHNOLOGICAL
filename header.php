@@ -1,36 +1,43 @@
 <section id="header">
     <div class="nav-container">
         <div class="logo">
-            <a href="home.php">GreenWear</a>
+            <a href="index.php">GreenWear</a>
         </div>
 
         <div class="navbarLEFT">
             <div class="dropdown">
-                <a class="a" href="catalog.php">Catalog 
+                <a  href="catalog.php">Catalog 
                     <i class="fa fa-caret-down"></i>
                 </a>
                 <div class="dropdown-content">
-                    <a href="#">Shirts</a>
-                    <a href="#">Sweaters</a>
-                    <a href="#">Pants</a>
-                    <a href="#">Shoes</a>
+                    <a href="clothing-template.php?cat=1">Sweaters</a>
+                    <a href="clothing-template.php?cat=2">Shirts</a>
+                    <a href="clothing-template.php?cat=3">Pants</a>
+                    <a href="clothing-template.php?cat=4">accesories</a>
                 </div> 
             </div> 
-                <a class="a" href="design.php">Design</a>
-                <a class="a" href="aboutus.php">About us</a>
-                <a class="a" href="faq.php">FAQ</a>
-                <a class="a" href="contact.php">Contact</a>
+                <a href="design.php">Design</a>
+                <a href="aboutus.php">About us</a>
+                <a href="faq.php">FAQ</a>
+                <a href="contact.php">Contact</a>
         </div>
     </div>
 
     <div class="navbarRIGHT">        
         <?php
         if (isset($_SESSION['user_id'])) {
-            echo '<a href="includes/logout.inc.php">Logout</a>';
-            echo '<a href="profile.php">Profile</a>';
-        } else {
-            echo '<a href="signup.php">Sign up</a>';
-            echo '<a href="login.php">Login</a>';
+            if (isset($_SESSION['user_type']) && $_SESSION['user_type'] !== 'admin') {
+                echo '<a class="underline" href="includes/logout.inc.php">Logout</a>';
+                echo '<a class="underline" href="profile.php">Profile</a>';
+            }
+            else {
+                echo '<a class="underline" href="includes/logout.inc.php">Logout</a>';
+                echo '<a class="underline" href="admin.php">Admin</a>';
+            }
+        } 
+        else {
+            echo '<a class="underline" href="signup.php">Sign up</a>';
+            echo '<a class="underline" href="login.php">Login</a>';
         }
         ?>
         <a href="cart.php">
@@ -48,16 +55,23 @@
 
 <div class="nav-dropdown">
     <ul>
-        <li><a href="index.php">Catalog</a></li>
+        <li><a href="catalog.php">Catalog</a></li>
         <li><a href="design.php">Design</a></li>
         <li><a href="aboutus.php">About us</a></li>
         <li><a href="faq.php">FAQ</a></li>
         <li><a href="contact.php">Contact</a></li>
         <?php
         if (isset($_SESSION['user_id'])) {
-            echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
-            echo '<li><a href="profile.php">Profile</a></li>';
-        } else {
+            if (isset($_SESSION['user_type']) && $_SESSION['user_type'] !== 'admin') {
+                echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
+                echo '<li><a href="profile.php">Profile</a></li>';
+            }
+            else {
+                echo '<li><a href="includes/logout.inc.php">Logout</a></li>';
+                echo '<li><a href="admin.php">Admin</a></li>';
+            }
+        } 
+        else {
             echo '<li><a href="signup.php">Sign up</a></li>';
             echo '<li><a href="login.php">Login</a></li>';
         }

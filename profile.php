@@ -3,8 +3,9 @@ require_once "includes/securesession.inc.php";
 require_once 'includes/getorder.inc.php';
 require_once "includes/databasis.inc.php";
 
+// check of user is ingelogd, stuur de user terug naar de homepage (login is beter!)
 if (!isset($_SESSION['user_id'])) {
-    header("Location: home.php");
+    header("Location: index.php");
     die();
 }
 
@@ -43,7 +44,7 @@ $orders = get_order($_SESSION['user_id'], $sqliconn);
                 <h1>Functions</h1>
 
                 <div class="function-group">
-                    <button><a href="home.php">Home page</a></button>
+                    <button><a href="index.php">Home page</a></button>
                 </div>
 
                 <div class="function-group">
@@ -66,22 +67,25 @@ $orders = get_order($_SESSION['user_id'], $sqliconn);
                     <button><a href="contact.php">Contact page</a></button>
                 </div>
 
-                <div class="button-group">
-                    <button type ="submit" name="submit">Delete account!</button>
-                </div>
+                <form class="button-group" action="includes/deleteacc.inc.php" method="POST">
+                    <button type="submit" name="submit">Delete account!</button>
+                </form>
         </div>
         <div class ="order-box">
             <div class="scroll">
                 <h2>Past orders</h2>
                 <?php
+                    // check of er een order is in de database
                     if ($orders->num_rows > 0) {
+                        // maak associative array, om info eruit te halen
                         while($row = $orders->fetch_assoc()) {
                             echo "<div class='orderoutput'>
-                            Order ID: " . htmlspecialchars($row["order_id"]) . "<br>
-                            Ordered: " . htmlspecialchars($row["order_created"]) . "<br>
-                            Arrival: " . htmlspecialchars($row["order_arrival"]) . "</div>";
+                            Order ID: " . $row["order_id"] . "<br>
+                            Ordered: " . $row["order_created"] . "<br>
+                            Arrival: " . $row["order_arrival"] . "</div>";
                         }
                     } 
+                    // als geen order in database dan display no orders found
                     else {
                         echo "<div>No orders found</div>";
                     }

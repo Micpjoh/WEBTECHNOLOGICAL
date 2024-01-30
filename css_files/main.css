@@ -45,7 +45,7 @@ body {
 }
 
 #header a:hover {
-    color: #007bff; 
+    color: #FFD580; 
 }
 
 .nav-container {
@@ -59,12 +59,31 @@ body {
     font-size: 2rem;
     color: green;
 }
-
-.navbarLEFT .a {
+.navbarLEFT a {
     margin-left: calc(30rem/16);
     font-size: calc(18rem/16);
     color: black;
+    position: relative;
 }
+
+.navbarLEFT a:hover {
+    opacity: 1;
+}
+
+.navbarLEFT a::before {
+    transition: width 400ms;
+    height: 3px;
+    content: "";
+    position: absolute;
+    background-color: orange;
+    width: 0%;
+    bottom: 0;
+}
+
+.navbarLEFT a:hover::before {
+    width: 40%;
+}
+
 
 .dropdown {
     display: inline-block;
@@ -100,8 +119,26 @@ body {
     padding-left: calc(40rem/16);
     font-size: calc(18rem/16);
     color: black;
+    position: relative;
+
+}
+.navbarRIGHT .underline:hover {
+    opacity: 1;
 }
 
+.navbarRIGHT .underline::before {
+    transition: width 400ms;
+    height: 3px;
+    content: "";
+    position:   absolute;
+    background-color: orange;
+    width: 0%;
+    bottom: 0;
+}
+
+.navbarRIGHT .underline:hover::before {
+    width: 25%;
+}
 .cart {
     margin-top: calc(8rem/16);
 }
@@ -172,12 +209,13 @@ body {
     color: white;
 }
 
+.groups-footer2 a,
 .groups-footer1 a {
     text-decoration: none;
     color: #a0a0a0;
 }
 
-.groups-footer2 a {
-    text-decoration: none;
-    color: #a0a0a0;
+.groups-footer2 a:hover,
+.groups-footer1 a:hover {
+    color: orange;
 }

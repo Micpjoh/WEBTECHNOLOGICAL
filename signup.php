@@ -1,9 +1,16 @@
 <?php
-require_once "includes/securesession.inc.php";
+session_start();
 
+// Als user al ingelogd is, stuur hem terug naar homepage
 if (isset($_SESSION['user_id'])) {
-    header("Location: home.php");
+    header("Location: index.php");
     die();
+}
+
+// Als input correct is behoud het, als input zorgt voor error verwijder het.
+function remember_forminput($input) {
+    if (isset($_SESSION["inputsform"][$input]) && !isset($_SESSION["errors_rememberform"][$input]))
+        echo $_SESSION["inputsform"][$input];
 }
 ?>
 
@@ -13,7 +20,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Sign up</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css_files/main.css">
     <link rel="stylesheet" href="css_files/signup.css">
@@ -33,52 +40,43 @@ if (isset($_SESSION['user_id'])) {
 
     <!-- BODY SECTION -->
     <section id="signup-container">
-        <div class = signup-box>
 
+        <div class = signup-box>
             <form id="signup-form" action="includes/signup.inc.php" method="post">
                 <h1>Sign up to&nbsp; <span style="color: green;"> GreenWear</span></h1>
-
+                
+                <!-- Laat errors zien van signup form (Alleen de eerste error) -->
                 <?php 
-                if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "invalidemail")
-                        echo "<p class='error-message'>Invalid email.</p>";
-                    if ($_GET["error"] == "names-contain-only-letters-and-numbers")
-                        echo "<p class='error-message'>Invalid username. <br> 
-                    Usernames can only exist of numbers and letters.</p>";
-                    if ($_GET["error"] == "username-already-in-use")
-                        echo "<p class='error-message'>Username is already in use.</p>";
-                    if ($_GET["error"] == "fill-in-all-fields")
-                        echo "<p class='error-message'>Please fill in all fields.</p>";
-                    if ($_GET["error"] == "emails-dont-match")
-                        echo "<p class='error-message'>Emails don't match.</p>";
-                    if ($_GET["error"] == "email-already-in-use")
-                        echo "<p class='error-message'>Emails is already in use.</p>";
-                    if ($_GET["error"] == "pw-dont-match")
-                        echo "<p class='error-message'>Passwords don't match.</p>";
-                    if ($_GET["error"] == "name-has-to-be-longer-than-2-char")
-                        echo "<p class='error-message'>Name needs to contain more than 2 characters.</p>";
+                if (isset($_SESSION["errors"])) {
+                    foreach ($_SESSION["errors"] as $displayerror) {
+                        echo "<p class='error-message'>$displayerror</p>";
+                        break;
+                    }
+                    unset($_SESSION["errors"]);
                 }
                 ?>
                 
                 <div class="input-group">
                     <label for="name">Username</label>
-                    <input type="text" name="name"></input>
+                    <input type="text" name="name" value="<?php remember_forminput("usn") ?>"></input>
                 </div>
 
                 <div class="input-group">
                     <label for="email">Email</label>
-                    <input type="email" name="email"></input>
-                </div class="input-group">
+                    <input type="email" name="email" value="<?php remember_forminput("email") ?>"></input>
+                </div>
 
                 <div class="input-group">
                     <label for="email-match">Confirm email</label>
-                    <input type="email" name="email-repeat"></input>
-                </div class="input-group">
+                    <input type="email" name="email-repeat" value="<?php remember_forminput("emailr") ?>"></input>
+                </div>
 
                 <div class="input-group">
                     <label for="pw">Password</label>
-                    <input type="password" name="password"></input>
+                    <input type="password" name="password" id="password" onkeyup="checkpwrequirement();"></input>
+                    <span id="passwordrequirementcheck"></span>
                 </div>
+
 
                 <div class="input-group">
                     <label for="pw-match">Confirm password</label>
@@ -100,16 +98,15 @@ if (isset($_SESSION['user_id'])) {
                     <a href="login.php">Already a <span class="logoname">GreenWear</span> user? Log in</a>
                 </div>
             </form>
-            
         </div>
+
     </section>
 
 
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
 
-    <!-- <script src="js/validateinputsignin.js"></script> -->
-
+    <script src="validatesignup.js"></script>
 </body>
 
 </html>

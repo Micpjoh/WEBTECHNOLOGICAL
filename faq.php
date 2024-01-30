@@ -36,7 +36,7 @@ require_once "includes/securesession.inc.php"
                 <div class="head-info">
                     GreenWear is a sustainable clothing brand committed to environmentally friendly practices. 
                     Our clothes are produced with high-quality materials in a green and ethical manner. 
-                    Embracing fair trade principles, we offer a single size that fits all, 
+                    <br><br>Embracing fair trade principles, we offer a single size that fits all, 
                     minimizing waste and promoting a more sustainable fashion industry.
                 </div>
             </div>
@@ -54,7 +54,7 @@ require_once "includes/securesession.inc.php"
                 <div class="head-info">
                     Please contact our Customer Service Team at 
                     customerservice@greenwear.com for further assistance. 
-                    We'll promptly assist you in resolving the issue and ensuring your satisfaction with GreenWear products.
+                    <br>We'll promptly assist you in resolving the issue and ensuring your satisfaction with GreenWear products.
                 </div>
             </div>
 
@@ -63,7 +63,7 @@ require_once "includes/securesession.inc.php"
                 <div class="head-info">
                     Please contact our Customer Service Team at 
                     customerservice@greenwear.com for further assistance. 
-                    We'll promptly assist you in resolving the issue and ensuring your satisfaction with GreenWear products.
+                    <br>We'll promptly assist you in resolving the issue and ensuring your satisfaction with GreenWear products.
                 </div>
             </div>
 
@@ -72,7 +72,7 @@ require_once "includes/securesession.inc.php"
                 <div class="head-info">
                     At GreenWear, social responsibility is integral to our mission. 
                     We ensure fair trade practices, support ethical working conditions, and engage in community initiatives. 
-                    By promoting positive social impact, we strive to make a meaningful difference beyond just providing sustainable and high-quality clothing.
+                    <br><br>By promoting positive social impact, we strive to make a meaningful difference beyond just providing sustainable and high-quality clothing.
                 </div>
             </div>
 
@@ -80,7 +80,7 @@ require_once "includes/securesession.inc.php"
                 <div class="head">CO2 neutral?</div>
                 <div class="head-info">
                     At GreenWear, we are committed to being CO2 neutral by implementing various eco-friendly practices throughout our production process. 
-                    Our commitment includes:
+                    <br><br>Our commitment includes:
                     Sustainable Materials, Low-Impact Production, Renewable Energy, Carbon Offsetting, Local Sourcing and Circular Economy Practices.
                 </div>
             </div>
