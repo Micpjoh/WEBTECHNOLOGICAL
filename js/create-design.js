@@ -24,6 +24,13 @@ function sendRequest(prompt) {
 console.log('hey');
 
 document.addEventListener('DOMContentLoaded', function() {
+    var promptInput = document.getElementById('promptInput');
+    var submitButton = document.getElementById('submitButton');
+
+    promptInput.addEventListener('input', function() {
+        submitButton.disabled = this.value.trim() === '';
+    });
+    
     document.getElementById('promptForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -45,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 selectedColor = colorRadios[i].value;
                 console.log("Selected Color: " + selectedColor);
                 break;
-            }
+            }   
         }
         const userInput = document.getElementById('promptInput').value;
         const fullPrompt = `${selectedClothing}, ${selectedColor} ${userInput}`;

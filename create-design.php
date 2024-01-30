@@ -37,7 +37,7 @@ require_once "includes/securesession.inc.php";
                 </p><br><br>
             
                 <label class="button-container">Shirt
-                    <input type="radio"  name="clothing" value ="Shirt">
+                    <input type="radio"  name="clothing" value ="Shirt" checked>
                     <span class="checkmark"></span>
                 </label><br>
                 <label class="button-container">Hoodie
@@ -63,11 +63,11 @@ require_once "includes/securesession.inc.php";
                     But rest assured in the future we shall release different colors to pick from and many more customisation options.
                 </p><br><br><br>
                 <label class="button-container">White
-                    <input type="radio"  name="Color" value="White with print of">
+                    <input type="radio"  name="Color" value="White,with print of" checked>
                     <span class="checkmark"></span>
                 </label><br>
                 <label class="button-container">Black
-                    <input type="radio" name="Color" value="Black with print of">
+                    <input type="radio" name="Color" value="Black,with print of">
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -82,7 +82,7 @@ require_once "includes/securesession.inc.php";
 
                     <form id="promptForm">
                         <input type="text" id="promptInput" placeholder="Enter your prompt">
-                        <button type="submit">See your imagination come to life</button>
+                        <button type="submit" id ="submitButton" disabled>See your imagination come to life</button>
                     </form>
                 </p>
            </div>
