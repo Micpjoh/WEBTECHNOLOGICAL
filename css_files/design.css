@@ -1,0 +1,132 @@
+/* BODY 1 */
+#body1 {
+    display: grid;
+    text-align: center;
+    background-color: #081c3c;
+    border-bottom: calc(1rem/16) solid #737070;
+    color: white;
+    padding: calc(30rem/16);
+}
+
+#body1 h2 {
+    font-size: calc(20rem/16);
+}
+
+.header-text h1 {
+    font-size: calc(80rem/16);
+}
+
+#design-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 80px;
+    margin-top: 30px;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10;
+}
+
+.design-box:first-child {
+    flex:1;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin: 10px;
+    display: flex;
+    flex-direction:row;
+}
+.design-box {
+    flex:1;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.design-box:first-child img {
+    width: 100%;
+    height: auto;
+}
+.design-box img {
+    width: 100%;
+    height: auto;
+}
+.design-info:first-child {
+    margin: 15px;
+    flex-grow: 1;
+}
+.design-info {
+    margin: 15px;
+    flex-grow: 1;
+}
+.image-slideshow-container {
+    display: flex;
+    flex-direction: row; 
+    z-index: 10;
+}
+#slideshow-container {
+    width: 100%;
+}
+
+.mySlides {
+    display: none; 
+    width: 100%;
+    z-index: -1;
+}
+
+.mySlides img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: 10;
+}
+
+.design-info p{
+    color:#797979;
+}
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }  
+@media (max-width: 1000px) {
+    #design-container {
+        flex-direction:column;
+        align-items: center;
+    }
+
+    .design-box:first-child {
+        margin-left: 0;
+        margin-right: 0;
+        width: auto;
+        flex-direction:column;
+    }
+
+    .design-box {
+        width: auto;
+        margin-right: 0;
+        margin-left: 0;
+        margin-bottom: 20px;
+        height: fit-content;
+        flex-direction:column;
+    }
+    
+}
+
