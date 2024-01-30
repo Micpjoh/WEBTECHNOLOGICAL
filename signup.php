@@ -73,8 +73,10 @@ function remember_forminput($input) {
 
                 <div class="input-group">
                     <label for="pw">Password</label>
-                    <input type="password" name="password"></input>
+                    <input type="password" name="password" id="password" onkeyup="checkPasswordStrength();"></input>
+                    <span id="password-strength"></span>
                 </div>
+
 
                 <div class="input-group">
                     <label for="pw-match">Confirm password</label>
@@ -103,8 +105,47 @@ function remember_forminput($input) {
 
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
+    <script>
+        function checkPasswordStrength() {
+            var password = document.getElementById('password').value;
+            var strengthText = document.getElementById('password-strength');
 
-    <!-- <script src="js/validateinputsignin.js"></script> -->
+            if (password.length < 5) {
+                strengthText.innerHTML = "Minimum 5 characters required";
+                strengthText.style.color = "red";
+                return;
+            }
+
+            if (!password.match(/[a-z]/)) {
+                strengthText.innerHTML = "At least one lowercase letter required";
+                strengthText.style.color = "red";
+                return;
+            }
+
+            if (!password.match(/[A-Z]/)) {
+                strengthText.innerHTML = "At least one uppercase letter required";
+                strengthText.style.color = "red";
+                return;
+            }
+
+            if (!password.match(/[0-9]/)) {
+                strengthText.innerHTML = "At least one digit required";
+                strengthText.style.color = "red";
+                return;
+            }
+
+            if (!password.match(/[\W]/)) {
+                strengthText.innerHTML = "At least one special character required";
+                strengthText.style.color = "red";
+                return;
+            }
+
+            strengthText.innerHTML = "Ugly ahhhh";
+            strengthText.style.color = "green";
+        }
+
+    </script>
+
 
 </body>
 

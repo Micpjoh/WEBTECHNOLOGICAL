@@ -35,4 +35,3 @@ and finish webAPI,
 ?and finish Security/Cookies
 
 Read syllabus for more requirements
-
