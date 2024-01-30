@@ -1,14 +1,3 @@
-<?php
-
-require_once "includes/securesession.inc.php";
-
-if (isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    die();
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +31,7 @@ if (isset($_SESSION['user_id'])) {
 
                 require_once "includes/databasis.inc.php";
 
-                // Query for products with stock greater than 0
+                // Query for category
                 $category = "SELECT * FROM category";
                 $result = $sqliconn->query($category);
 
