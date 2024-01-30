@@ -42,9 +42,9 @@ function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
 
         $expiresAt = time() + (86400 * 30);
         $datedexpiresAt = date('Y-m-d H:i:s', $expiresAt);
-        $stmt = $sqliconn->prepare("INSERT INTO tokenlogin (token, user_id, expirydate, username, user_type) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sisss", $token, $user['user_id'], $datedexpiresAt, $user["username"], $user["user_type"]);
-        $stmt->execute();
+        $preparedstatement = $sqliconn->prepare("INSERT INTO tokenlogin (token, user_id, expirydate, username, user_type) VALUES (?, ?, ?, ?, ?)");
+        $preparedstatement->bind_param("sisss", $token, $user['user_id'], $datedexpiresAt, $user["username"], $user["user_type"]);
+        $preparedstatement->execute();
     }
 
 

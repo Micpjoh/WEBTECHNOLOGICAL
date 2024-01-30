@@ -1,28 +1,29 @@
 #header-cloth {
     
-    display: flex;
-    flex-direction: row;
-    background-color: lightblue;
-    height : 200px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 30px;
+    background-color: #081c3c;
+    border-bottom: calc(1rem/16) solid #737070;
 }
 
-#header-left {
-    display: flex;
-    flex-direction: column;
-    flex: 80%;
-    padding-left: 10%;
-   
+
+#header-cloth h1 {
+    color: white;
+    font-size: calc(80rem/16);
+
 }
 
-#header-right {
-    display: flex;
-    flex: 20%;
-    
+
+#header-cloth h2 {
+    color: white;
+    font-size: calc(20rem/16);;
+
 }
 
-#header-icon {
-    size: 50%;
-}
 
 #cloth-container {
     display: flex;
@@ -30,55 +31,56 @@
     padding-bottom: 3%; 
     flex-direction: column;
     gap: 40px;
+    
 }
 
-.cloth-rows {
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
 
+.cloth-rows {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+    padding-left: 20px; 
+    padding-right: 20px;
 }
 
 .cloth {
     display: flex;
     flex-direction: column;
-    height: 700px;
-    width: 600px;
-    
+    align-items: center; 
+    text-align: center; 
+    width: calc(50% - 20px); 
+    max-width: 300px;
+    text-decoration: none; 
 }
+.img-here {
+    background-color: pink;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.cloth img {
+    max-height: 100%; 
+    max-width: 100%; 
+    object-fit: contain; 
+}
+
 
 .cloth:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
 }
 
 
-.img-here {
-    background-color: pink;
-    display: flex;
-    flex: 90%;
-  
-}
+
 
 .name-container {
-    justify-content: center;
     background-color: grey;
     display: flex;
-    flex: 10%;
+    justify-content: center; 
+    align-items: center;
+    left: 0; 
+    width: 100%; 
     padding: 20px;
-}
-
-@media only screen and (max-width: 1000px) {
-    #cloth-container {
-        padding: 5% 5%; 
-    }
-
-    .cloth-rows {
-        flex-direction: column;
-    }
-
-    .cloth {
-        width: 100%;
-    }
-
+    box-sizing: border-box; 
 }

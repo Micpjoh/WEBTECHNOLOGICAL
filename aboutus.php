@@ -73,6 +73,49 @@ require_once "includes/securesession.inc.php";
                 </p>
             </div>
         </div>
+
+        <div class="aboutus-box">
+            <img src="img/catprogramming.jpeg">
+            <div class="aboutus-info">
+                <h2>The GreenWear Team</h2>
+                <p>
+                We are a team of AI students at UVA with a great passion for programming.
+                This company website <span class="logoname">GreenWear</span> , has been built by us during our course at UVA <br> <br>
+                We may not have our pictures, but the image above perfectly encapsulates ourselves during this course.
+                </p>
+            </div>
+        </div>
+
+        <div class="aboutus-box">
+            <img src="img/rainforest.jpg">
+            <div class="aboutus-info">
+                <h2>We plant trees</h2>
+                <p>
+                At <span class="logoname">GreenWear</span>, our commitment to sustainability is woven into every purchase. 
+                With our tree-planting initiative, 5% of every sale goes directly towards planting 
+                trees in collaboration with environmental organizations. <br><br>By choosing <span class="logoname">GreenWear</span>,
+                 you're not only dressing in eco-friendly attire but also ensuring that a 
+                 significant portion of your purchase actively contributes to global reforestation 
+                 efforts. <br><br>Together, we're making a meaningful impact on the planet, one stylish garment 
+                 and one tree at a time.
+                </p>
+            </div>
+        </div>
+
+        <div class="aboutus-box">
+            <img src="img/treeplanting.jpg">
+            <div class="aboutus-info">
+                <h2>We help preserving the Amazon</h2>
+                <p>
+                At <span class="logoname">GreenWear</span>, we're passionate about preserving the Amazon rainforest. 
+                Through impactful partnerships with conservation organizations, 
+                we dedicate resources to prevent deforestation, support local communities, 
+                and promote sustainable practices.<br><br> Your choice of <span class="logoname">GreenWear</span> contributes 
+                directly to the protection of this vital ecosystem, 
+                helping ensure a greener and healthier future for the Amazon and our planet.
+                </p>
+            </div>
+        </div>
     </section>
 
     <!-- FOOTER -->
