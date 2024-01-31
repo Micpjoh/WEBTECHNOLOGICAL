@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+<?php
+require_once "includes/securesession.inc.php";
+?>
+>>>>>>> 44e8ee5 (.)
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,4 +104,8 @@
     <?php include "footer.php"; ?>
     
 </body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 44e8ee5 (.)
 </html>
