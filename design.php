@@ -31,61 +31,52 @@ require_once "includes/securesession.inc.php";
 
     <!-- BODY SECTION -->
         <section id="design-container">
-            <div class="design-box" style="
-            display: flex;
-            gap: 10px;
-            ">
-                <img src="img/catprogramming.jpeg">
+            <div class="design-box">
 
                 <div class="Design-info">
-                    <h2>3 EASY STEPS</h2>
+                    <h2>3 EASY STEPS</h2><br><br><br>
                     <p>
-                    Step 1: Choose what type of clothing piece you want.<br> 
-                    Step 2: Use our image generating technology to create whatever you can imagine.<br>
+                    Step 1: Choose what type of clothing piece you want.<br> <br>
+                    Step 2: Use our image generating technology to create whatever you can imagine.<br><br>
                     Step 3: Pay.<br> <br>
-                    It's really THAT easy here at <span class="logoname">GreenWear</span> .
+                    It's really THAT easy here at <span class="logoname">GreenWear</span> . We pride ourselves in making the process as easy and quick as possible.
+                    We trust that you will make a piece of clothing that even we will be jealous of.<br>
                     </p>
                     <p>
-                    Ready to unleash your creativity? <a href="create-design.php" class="start-designing-link">Start designing now</a> and see your imagination come to life!<br><br>
+                    Ready to unleash your creativity? Start designing now and see your imagination come to life!<br><br>
                     </p>
 
                     <p>
                         Like what you made? Think other people would want it as well? Just click the 'Add to shop' button upon payment and receive a 10% comission fee for every item sold.
+                        <br><br>
+                        
+                        <a href="create-design.php" class="start-designing-link">Start your creative journey!</a>
+
                     </p>                
                 </div>
-                <div class="bg-1" style="
-                background-image: url(img/catprogramming.jpeg);
-                    height: 100px;
-                    width: 100px
-                    display: flex
-                ">
-
+            </div>
+            <div class="design-box">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="img/p1.jpg" style="width:100%">
                 </div>
-                        <div class="mySlides fade">
-                            <div class="numbertext">1 / 3</div>
-                            <img src="img/p1.jpg" style="width:100%">
-                            <div class="text">Caption Text</div>
-                        </div>
 
-                        <div class="mySlides fade">
-                            <div class="numbertext">2 / 3</div>
-                            <img src="img/p2.jpg" style="width:100%">
-                            <div class="text">Caption Two</div>
-                        </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="img/p2.jpg" style="width:100%">
+                </div>
 
-                        <div class="mySlides fade">
-                            <div class="numbertext">3 / 3</div>
-                            <img src="img/p3.jpg" style="width:100%">
-                            <div class="text">Caption Three</div>
-                        </div>
-
-                    </div>
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="img/p3.jpg" style="width:100%">
+                </div>
 
                 <div style="text-align:center">
                     <span class="dot"></span> 
                     <span class="dot"></span> 
                     <span class="dot"></span> 
                 </div>
+            </div>
        </section>
     <script src="js/design.js"></script>
 
