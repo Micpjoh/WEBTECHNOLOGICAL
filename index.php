@@ -1,8 +1,3 @@
-<?php
-require_once "includes/securesession.inc.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,8 +23,9 @@ require_once "includes/securesession.inc.php";
     <div class="container">
         <div class="txtpart">
             <div class="textbasic">
-            <h1>Shop your look</h1>
-            <h4>Discover your own style in our catalogue full of different styles and clothing!!</h4>
+                <h1>Shop the look</h1>
+                <h4>Shop the latest trends in our catalogue. Your unique fashion journey begins here.</h4>
+                <br>
             </div>
             <button>
                 <a href="catalog.php" class="noline">see more</a>
@@ -44,7 +40,8 @@ require_once "includes/securesession.inc.php";
         <div class="txtpart">
             <div class="textbasic">
             <h1>Create your own</h1>
-            <h4>Create perfect presents using our creator or use your own ideas to create your own personalized clothesline!!</h4>
+            <h4>Shop the latest trends or unleash your creativity with our customizable clothing options.</h4>
+            <br>
             </div>
             <button>
                 <a href="design.php" class="noline">start creating!</a>
@@ -53,8 +50,6 @@ require_once "includes/securesession.inc.php";
     </div>
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
-
-    <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,22 +1,25 @@
+/*for parallax scrolling and text on top*/
 .mainimage{
     background-image:url("../img/p5.jpg");
-    min-height: 400px;
+    height: 100vh;
     background-attachment: fixed;
     background-size: cover;
+    background-size:100% 100%; 
 }
 .imgtxt{
-    padding-top: 250px;
+    padding-top: 25vh;
     text-align: center;
-    font-size: 120px;
+    font-size: 6vw;
     color: white;
-}
-.textbasic{
-    font-size: 30px;
-    padding-bottom: 20px;
-    text-align: center;
+    text-shadow: 0px 0px 3px black;
 }
 .container{
-    background-color: #081c3c;
+    background: radial-gradient(black, #081c3c);
+}
+.textbasic{
+    padding-top: 200px;
+    font-size: 2vw;
+    text-align: center;
 }
 .txtpart{
     text-align: center;
@@ -24,19 +27,25 @@
     color: white;
     padding-bottom: 20px;
 }
+/*button and animation of said button*/
 button{
-    background-color: white;
     border: 10px white;
     border-radius: 100vw;
-    font-size: 50px;
+    font-size: 3vw;
+    background: linear-gradient(to right, #081c3c 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right;
 }
 button:hover{
-    background-color: #659DBD;
+    background-position: left;
+    transition: all 0.45s ease-out;
+    text-shadow: 0px 0px 3vw white;
 }
+/*used so that links aren't blue and underlined*/
 a.noline{
     text-decoration: none;
     display: block;
-    padding: 20px 40px;
+    padding: 2vw 4vw;
     color: black;
 }
 .rightpic img{
@@ -47,45 +56,35 @@ a.noline{
     height: auto;
     width: 100%;
 }
+/*these properties are only active if screen-width greater than 1200px*/
 @media only screen and (min-width: 1200px) {
-    .mainimage{
-        min-height: 800px;
-    }
     .container{
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 20px;
+        row-gap: 20px;
         padding-right: 20px;
         padding-left: 20px;
         padding-top: 20px;
         padding-bottom: 20px;
     }
-    .leftpic{
-        min-height: 100%;
-        min-width: auto;
-    }
-    .rightpic{
-        min-height: 100%;
-        min-width: auto;
-    }
-    .imgtxt{
-        font-size: 120px;
-    }
     .textbasic{
-        font-size: 50px;
         padding-bottom: 20px;
     }
 }
-@media only screen and (max-width:700px) {
-        .mainimage{
-            min-height: 300px;
-        }    
+/*these properties are only active if screen-width smaller than 1200px*/
+@media only screen and (max-width:1200px) {
+    .mainimage{
+        height: 40vh;
+    }
+    .leftpic{
+        display: none;
+    } 
         .imgtxt{
-            padding-top: 100px;
-            font-size: 40px;
+            padding-top: 25vh;
         }
         .textbasic{
-            font-size: 10px;
+            padding-top: 0px;
             padding-bottom: 20px;
         }
         .txtpart{
@@ -93,15 +92,4 @@ a.noline{
             padding-left: 10px;
             padding-bottom: 20px;
         }
-        button{
-            background-color: white;
-            border: 10px white;
-            border-radius: 100vw;
-            font-size: 20px;
-        }
-        button:hover{
-            background-color: #659DBD;
-        }
-
-    }
 }

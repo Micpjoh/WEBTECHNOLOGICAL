@@ -14,7 +14,7 @@
     flex-direction: column;
     gap: 20px;
     flex: 10%;
-    
+        
    
 }
 
@@ -42,13 +42,20 @@
 }
 
 #row-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: 20px; /* Adjust the gap between items */
     justify-content: center;
-    
 }
 
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd; /* Add border for each item */
+}
 .cloth-row {
 
     display: flex;
