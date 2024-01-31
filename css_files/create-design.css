@@ -148,3 +148,29 @@
         height: fit-content;
     }
 }
+
+/* BUY AND STORE BUTTON */
+.sections-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#addtoStoreForm button {
+  display: none;
+  margin: 0 auto;
+  margin-bottom: 80px; 
+  background-color: #081c3c;
+  color: white;
+  border: calc(4rem/16) solid #f3f1ef;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: calc(18rem/16);
+  padding: 20px;
+  text-align: center;
+}
+
+#addtoStoreForm button:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease-in-out;
+
+}

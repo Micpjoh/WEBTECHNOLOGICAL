@@ -106,7 +106,7 @@ function remember_forminput($input) {
     <!-- FOOTER -->
     <?php include "footer.php"; ?>
 
-    <script src="validatesignup.js"></script>
+    <script src="js/validate-signup.js"></script>
 </body>
 
 </html>

@@ -11,6 +11,7 @@ function sendRequest(prompt) {
             const imageUrl = URL.createObjectURL(blob);
             document.getElementById('resultImage').src = imageUrl;
             document.getElementById('resultImage').style.display = 'block';
+            document.getElementById('addtoStore').style.display = 'block';
         }
     });
 

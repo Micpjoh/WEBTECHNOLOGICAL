@@ -28,7 +28,7 @@ if (isset($_POST["submit"])) {
 
     }
     if(validity_name($username)) {
-        $errordisplay["invalid_usn"] = "Username is invalid";
+        $errordisplay["invalid_usn"] = "Username is invalid<br> Names exist only of letters and numbers";
         $errorrememberform["usn"] = "";
 
     }

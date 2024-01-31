@@ -1,11 +1,11 @@
 <?php
 require_once "includes/securesession.inc.php";
-require_once 'includes/getorder.inc.php';
+require_once 'includes/orderfunctions.php';
 require_once "includes/databasis.inc.php";
 
-// check of user is ingelogd, stuur de user terug naar de homepage (login is beter!)
+// check of user is ingelogd, stuur de user terug naar de login
 if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php");
+    header("Location: login.php");
     die();
 }
 
@@ -80,7 +80,7 @@ $orders = get_order($_SESSION['user_id'], $sqliconn);
                         // maak associative array, om info eruit te halen
                         while($row = $orders->fetch_assoc()) {
                             echo "<div class='orderoutput'>
-                            Order ID: " . $row["order_id"] . "<br>
+                            Ordernum: " . $row["order_code"] . "<br>
                             Ordered: " . $row["order_created"] . "<br>
                             Arrival: " . $row["order_arrival"] . "</div>";
                         }

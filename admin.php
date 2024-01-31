@@ -93,6 +93,7 @@ $orderscount = order_amount($sqliconn);
                         echo "<td>" . $row['stock'] . "</td>";
                         echo "<td> <img style='width: 120px;' src='" . $row['img'] . "' alt='foto van product' /> </td>";
                         echo "<td>" . $row['category'] . "</td>";
+                        echo "<td>" . $row['category_id'] . "</td>";
                         echo "<td> <a href='includes/admindelproduct.inc.php?product_id=" . $row['product_id'] . "'>Delete</a> </td>";
                         echo "</tr>";
                     }
