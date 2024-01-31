@@ -38,7 +38,7 @@ require_once "includes/securesession.inc.php";
 
         <div class = "cartinfo-box">
             <div class ="item-box">
-                <h1></h1>
+                <h1>Greenwear shopping cart:</h1>
 
             </div>
 

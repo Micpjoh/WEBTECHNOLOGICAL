@@ -1,9 +1,7 @@
-<<<<<<< HEAD
-=======
 <?php
+require_once "includes/databasis.inc.php";
 require_once "includes/securesession.inc.php";
 ?>
->>>>>>> 44e8ee5 (.)
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,10 +32,6 @@ require_once "includes/securesession.inc.php";
         <div id='product-container'>
         
     <?php
-
-    require_once "includes/databasis.inc.php";
-    require_once "includes/securesession.inc.php";
-
     if(isset($_GET['product_id'])){
                    // Sanitize input to prevent SQL injection
         $product_id = $sqliconn->real_escape_string($_GET['product_id']);
@@ -52,12 +46,6 @@ require_once "includes/securesession.inc.php";
 
         $result = $secure->get_result();
 
-
-        // Error handling
-        if (!$result) {
-            die('Error fetching products: ' . $secure->error);
-        }
-
         while($row = $result->fetch_assoc()){
             $product_name = $row['product_name'];
             $product_img = $row['img'];
@@ -65,31 +53,24 @@ require_once "includes/securesession.inc.php";
             $desc = $row['product_info'];
             $stock = $row['stock'];
 
-                    
-                       
-
-
             echo "
-        <div class='product-left'>
-            <div class='img-here'>
-                <img src='$product_img'>
+            <div class='product-left'>
+                <div class='img-here'>
+                    <img src='$product_img'>
+                </div>
             </div>
-        </div>
-        <div class='product-right'>
-            <h2 class='name'>$product_name</h2>
-            <h3 class='desc'>$desc</h3>
-            <form action = 'includes/addtocart.php' method = 'post'>
-                <input type = 'hidden' name = 'product_id' value = '$product_id'>
-                <input type='number' value ='1' min = '1' max ='$stock' id='input-quan' name = 'quantity'>
-                <input type='submit' name= 'add-cart'>
-            </form>    
-        </div>";
+            <div class='product-right'>
+                <h2 class='name'>$product_name</h2>
+                <h3 class='desc'>$desc</h3>
+                <form action='addtocart.php' method='POST'>
+                    <input type='hidden' name='product_id' value='$product_id'>
+                    <input type='number' name='quantity' value='1' min='1' max='$stock'>
+                    <button type='submit' name='submit'>Add to Cart</button>
+                </form>    
+            </div>";
+        
             };      
-      
         };
-
-
- 
         ?>
 
 
@@ -104,8 +85,4 @@ require_once "includes/securesession.inc.php";
     <?php include "footer.php"; ?>
     
 </body>
-<<<<<<< HEAD
-=======
-
->>>>>>> 44e8ee5 (.)
 </html>
