@@ -65,6 +65,19 @@ require_once "includes/securesession.inc.php";
                         </div>";
                     }
                 }
+
+                if(isset($_GET['product_id'])){
+                    // Sanitize input to prevent SQL injection
+                    $product_id = $sqliconn->real_escape_string($_GET['product_id']);
+
+                    // Query for products with stock greater than 0
+                    $sql = "SELECT * FROM products WHERE product_id = $product_id";
+                    $result = $sqliconn->query($sql);
+
+                    // Error handling
+                    if (!$result) {
+                        die('Error fetching products: ' . $sqliconn->error);
+                    }
             ?>
             </div>
             </div>        
