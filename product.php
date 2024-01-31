@@ -52,7 +52,6 @@ require_once "includes/securesession.inc.php";
             $price = $row['price'];
             $desc = $row['product_info'];
             $stock = $row['stock'];
-
             echo "
             <div class='product-left'>
                 <div class='img-here'>
