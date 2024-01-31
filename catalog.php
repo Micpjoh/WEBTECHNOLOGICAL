@@ -31,13 +31,17 @@
 
                 require_once "includes/databasis.inc.php";
 
-                // Query for category
+                // Query for products with stock greater than 0
                 $category = "SELECT * FROM category";
-                $result = $sqliconn->query($category);
+                $secure = $sqliconn->prepare($category);
+
+                $secure->execute();
+
+                $result = $secure->get_result();
 
                 // Error handling
                 if (!$result) {
-                    die('Error fetching products: ' . $sqliconn->error);
+                    die('Error fetching categories: ' . $secure->error);
                 }
 
                 while($row= $result->fetch_assoc()){

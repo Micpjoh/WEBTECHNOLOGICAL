@@ -1,8 +1,3 @@
-<?php 
-require_once "includes/securesession.inc.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,30 +29,36 @@ require_once "includes/securesession.inc.php";
             </div>
             <div id="big-div">
                
-                <div id="row-container">
-                    <div class="cloth-row">
+                <div id="row-container" class="cloth-row">
+            
+                    <?php 
+                
+                    require_once "includes/databasis.inc.php";
 
-                <?php 
-                require_once "includes/databasis.inc.php";
+                    if(isset($_GET['cat'])){
+                        // Sanitize input to prevent SQL injection
+                        $cat_id = $sqliconn->real_escape_string($_GET['cat']);
 
-                if(isset($_GET['cat'])){
-                   // Sanitize input to prevent SQL injection
-                   $cat_id = $sqliconn->real_escape_string($_GET['cat']);
+                    // Query for products with stock greater than 0
+                    $sql = "SELECT * FROM products WHERE category_id = ? AND stock >0";
+                    $secure = $sqliconn->prepare($sql);
 
-                   // Query for products with stock greater than 0
-                   $sql = "SELECT * FROM products WHERE category_id = $cat_id AND stock >0";
-                   $result = $sqliconn->query($sql);
+                    $secure->bind_param("i", $cat_id);
+
+                    $secure->execute();
+
+                    $result = $secure->get_result();
 
                     // Error handling
                     if (!$result) {
-                       die('Error fetching products: ' . $sqliconn->error);
+                        die('Error fetching products: ' . $secure->error);
                     }
 
                     while($row = $result->fetch_assoc()){
-                       $product_name = $row['product_name'];
-                       $product_img = $row['img'];
-                       $price = $row['price'];
-                       $product_id = $row ['product_id'];
+                        $product_name = $row['product_name'];
+                        $product_img = $row['img'];
+                        $price = $row['price'];
+                        $product_id = $row ['product_id'];
 
 
                     echo "
@@ -71,14 +72,12 @@ require_once "includes/securesession.inc.php";
                                 <h3 class='name'>$product_name</h3>
                                 <h3 class='price'>$price</h3>
                             </div>
-                          
                         </a> ";
                     };
                 };
 
-                        ?>
-                    </div>
-                </div>
+                ?>
+            </div>
             </div>
         </div>
     </section>
