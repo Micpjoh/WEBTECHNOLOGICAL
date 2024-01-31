@@ -1,5 +1,13 @@
 <?php
 require_once "includes/securesession.inc.php";
+
+// Als user niet ingelogd is, stuur hem terug naar loginpage
+if (!isset($_SESSION['user_id'])) {
+    echo "<script>alert('You need to be logged in to create a custom piece. <br> Redirecting to login page');         
+    window.location.href = 'login.php';</script>";
+    die();
+}
+
 ?>
 
 <!DOCTYPE html>

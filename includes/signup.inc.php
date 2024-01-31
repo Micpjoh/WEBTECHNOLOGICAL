@@ -61,6 +61,21 @@ if (isset($_POST["submit"])) {
         $errordisplay["notmatch_pw"] = "Passwords dont match.";
 
     }
+    if (length_pw($pw)) {
+        $errordisplay["length_pw"] = "Password should be 5 characters or more";
+    }
+
+    if (digit_pw($pw)) {
+        $errordisplay["digit_pw"] = "Password should have atleast 1 digit";
+    }
+
+    if (uppercase_pw($pw)) {
+        $errordisplay["uppercase_pw"] = "Password should have atleast 1 uppercase character";
+    }
+    
+    if (lowercase_pw($pw)) {
+        $errordisplay["lowercas_pw"] = "Password should have atleast 1 lowercase character";
+    }
     
     // als input correct is zonder enige errors, creeer user
     if (!$errordisplay) {

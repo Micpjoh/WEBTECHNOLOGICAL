@@ -62,7 +62,7 @@ function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
 
         // log in als user als user_type "user" is
         if ($_SESSION['user_type'] === 'user'){
-            header("Location: ../profile.php");
+            header("Location: ../index.php");
             die();
         }
     } 

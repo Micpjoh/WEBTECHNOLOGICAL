@@ -4,6 +4,10 @@ require_once "databasis.inc.php";
 require_once "securesession.inc.php";
 require_once "orderfunctions.php";
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../index.php");
+    die();
+}
 if(isset($_POST['imageUrl']) && isset($_POST['clothing'])) {
     $p_name = "User Created";
     $p_info = "made by user";
