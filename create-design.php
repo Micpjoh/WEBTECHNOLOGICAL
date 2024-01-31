@@ -72,11 +72,11 @@ if (!isset($_SESSION['user_id'])) {
                         But rest assured in the future we shall release different colors to pick from and many more customisation options.
                     </p><br><br><br>
                     <label class="button-container">White
-                        <input type="radio"  name="Color" value="White with print of">
+                        <input type="radio"  name="Color" value="White">
                         <span class="checkmark"></span>
                     </label><br>
                     <label class="button-container">Black
-                        <input type="radio" name="Color" value="Black with print of">
+                        <input type="radio" name="Color" value="Black">
                         <span class="checkmark"></span>
                     </label>
                 </div>
@@ -114,8 +114,8 @@ if (!isset($_SESSION['user_id'])) {
                         <h1>Your custom piece</h1><br>
                         <p id="selectedProductDetails"></p>
                         <p id="modelInfo"></p>
-                        <p id="colorInfo"></p>
-                        <p id="priceInfo"></p><br><br><br>
+                        <p id="colorInfo"></p><br><br><br>
+                        <p id="priceInfo">Price: €29,99</p><br><br><br>
                         <form action="includes/addtoStore.php" method="POST">
                             <button class= "payButton">Pay</button>
                         </form>
