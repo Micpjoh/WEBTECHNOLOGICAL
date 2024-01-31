@@ -192,25 +192,6 @@ font-size: 20px;
 z-index: 1002; /* Ensures the close button is clickable */
 }
 
-.buyButton {
-position: absolute;
-right: 90px;
-bottom: 230px;
-display: inline-block; 
-padding: 18px 35px;
-background-color: green; 
-color: white; 
-text-align: center; 
-text-decoration: none; 
-font-size: 21px; 
-border-radius: 5px; 
-font-weight: bold; 
-}
-
-.buyButton:hover {
-background-color: darkgreen; 
-cursor: pointer; 
-}
 
 @media (max-width: 1000px) {
   #create-design-container {
@@ -234,4 +215,26 @@ cursor: pointer;
   .popup-body {
     flex-direction: column;
   }
+}
+
+/* BUY AND STORE BUTTON */
+
+#addtoStoreForm1 button {
+  display: none;
+  margin: 0 auto;
+  margin-bottom: 80px; 
+  background-color: #081c3c;
+  color: white;
+  border: calc(4rem/16) solid #f3f1ef;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: calc(18rem/16);
+  padding: 20px;
+  text-align: center;
+}
+
+#addtoStoreForm1 button:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease-in-out;
+
 }

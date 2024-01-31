@@ -8,6 +8,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: ../index.php");
     die();
 }
+
 if(isset($_POST['imageUrl']) && isset($_POST['clothing'])) {
     $p_name = "Custom " . $_POST['clothing'];
     $p_info = "made by " . $_SESSION["user_name"];
@@ -34,10 +35,16 @@ if(isset($_POST['imageUrl']) && isset($_POST['clothing'])) {
     create_order($_SESSION['user_id'], $sqliconn);
 
     echo "<script>alert('Thank you for shopping at Greenwear, your created item has also successfully been added to our catalog!');         
-    </script>";
-    header("refresh:0;url=../catalog.php");
+    window.location.href = '../catalog.php';</script>";
     die();
+    }
+    else {
+        create_order($_SESSION['user_id'], $sqliconn);
 
-    $preparedstatement->close();
-    $sqliconn->close();
-}
+        echo "<script>alert('Thank you for shopping at Greenwear!');         
+        window.location.href = '../catalog.php';</script>";
+        die();
+    }
+
+$preparedstatement->close();
+$sqliconn->close();
