@@ -11,7 +11,7 @@ require_once "includes/securesession.inc.php";
     <title>Contact</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css_files/main.css">
-    <link rel="stylesheet" href="css_files/aboutus.css">
+    <link rel="stylesheet" href="css_files/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -30,7 +30,23 @@ require_once "includes/securesession.inc.php";
     </section>
 
     <!-- BODY SECTION -->
-    <section id="aboutus-container">
+    <section id="cart-container">
+        <div class ="cart-header">
+            <h1>Greenwear shopping cart:</h1>
+
+        </div>
+
+        <div class = "cartinfo-box">
+            <div class ="item-box">
+                <h1></h1>
+
+            </div>
+
+            <div class ="payment-box">
+                <h1>Cart total</h1>
+                
+            </div>
+        </div>
     </section>
 
     <!-- FOOTER -->
