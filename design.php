@@ -46,6 +46,7 @@ require_once "includes/securesession.inc.php";
                     Ready to unleash your creativity? Start designing now and see your imagination come to life!<br><br>
                     </p>
 
+                    <!-- Link to next page -->
                     <p>
                         Like what you made? Think other people would want it as well? Just click the 'Add to shop' button upon payment and receive a 10% comission fee for every item sold.
                         <br><br>
@@ -55,6 +56,7 @@ require_once "includes/securesession.inc.php";
                     </p>                
                 </div>
             </div>
+            <!-- Slideshow -->
             <div class="design-box">
                 <div class="mySlides fade">
                     <div class="numbertext">1 / 3</div>
@@ -77,6 +79,7 @@ require_once "includes/securesession.inc.php";
                     <span class="dot"></span> 
                 </div>
             </div>
+            <!-- slideshow from W3School-->
        </section>
     <script src="js/design.js"></script>
 
