@@ -25,9 +25,25 @@ function sendRequest(prompt) {
 document.addEventListener('DOMContentLoaded', function() {
     var promptInput = document.getElementById('promptInput');
     var submitButton = document.getElementById('submitButton');
+    var clothingRadios = document.getElementsByName('clothing');
+    var colorRadios = document.getElementsByName('Color');
 
-    promptInput.addEventListener('input', function() {
-        submitButton.disabled = this.value.trim() === '';
+    function updateSubmitButtonState() {
+        var isInputNotEmpty = promptInput.value.trim() !== '';
+        var isClothingSelected = Array.from(clothingRadios).some(radio => radio.checked);
+        var isColorSelected = Array.from(colorRadios).some(radio => radio.checked);
+
+        submitButton.disabled = !isInputNotEmpty || !isClothingSelected || !isColorSelected;
+    }
+
+    promptInput.addEventListener('input', updateSubmitButtonState);
+
+    Array.from(clothingRadios).forEach(function(radio) {
+        radio.addEventListener('change', updateSubmitButtonState);
+    });
+
+    Array.from(colorRadios).forEach(function(radio) {
+        radio.addEventListener('change', updateSubmitButtonState);
     });
 
     document.getElementById('promptForm').addEventListener('submit', function(event) {
@@ -52,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }   
         }
         const userInput = document.getElementById('promptInput').value;
-        const fullPrompt = `${selectedClothing}, ${selectedColor} ${userInput}`;
+        const fullPrompt = `${selectedClothing}, ${selectedColor} with print of ${userInput}`;
         console.log("Full Prompt: " + fullPrompt);
         sendRequest(fullPrompt);
     });

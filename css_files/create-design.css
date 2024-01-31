@@ -129,12 +129,11 @@ input {
 /*from W3school*/
 
 .popup {
-all: initial;
 position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
+top: 0 !important;
+left: 0 !important;
+right: 0 !important;
+bottom: 0 !important;
 background: rgba(0, 0, 0, 0.7); 
 display: flex;
 justify-content: center;
