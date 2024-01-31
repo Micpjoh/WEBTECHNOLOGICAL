@@ -8,7 +8,7 @@ require_once "databasis.inc.php";
 
 //check of user admin is, anders geen toegang
 if (!isset($_SESSION['user_id']) || ($_SESSION['user_type'] !== "admin")) {
-    header("Location: ../home.php");
+    header("Location: ../index.php");
     die();
 }
 
@@ -21,12 +21,13 @@ if (isset($_POST['submit'])) {
     $stock = $_POST['stock'];
     $image = $_POST['img'];
     $category = $_POST['category'];
+    $categoryID = $_POST['categoryID'];
 
     //prep sql query
-    $preparedstatement = $sqliconn->prepare( "INSERT INTO products (product_name, product_info, price, stock, img, category) VALUES (?, ?, ?, ?, ?, ?)");
+    $preparedstatement = $sqliconn->prepare( "INSERT INTO products (product_name, product_info, price, stock, img, category, category_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
     //voeg variablen toe op de placeholder Values
-    $preparedstatement->bind_param("ssdiss", $productName, $productInfo, $price, $stock, $image, $category);
+    $preparedstatement->bind_param("ssdissi", $productName, $productInfo, $price, $stock, $image, $category, $categoryID);
 
     //execute statement en lose it
     $preparedstatement->execute();

@@ -8,8 +8,14 @@ function checkpwrequirement() {
         return;
     }
 
-    if (!password.match(/[a-zA-Z]/)) {
-        reqs.innerHTML = "Password should contain both uppercase and lowercase letter";
+    if (!password.match(/[a-z]/)) {
+        reqs.innerHTML = "Password should contain a lowercase letter";
+        reqs.style.color = "red";
+        return;
+    }
+
+    if (!password.match(/[A-Z]/)) {
+        reqs.innerHTML = "Password should contain a uppercase letter";
         reqs.style.color = "red";
         return;
     }
@@ -21,7 +27,7 @@ function checkpwrequirement() {
     }
 
     if (!password.match(/[\W]/)) {
-        reqs.innerHTML = "Password should contain as secial character";
+        reqs.innerHTML = "Password should contain as special character";
         reqs.style.color = "red";
         return;
     }

@@ -120,3 +120,54 @@ function check_pw_matching($pw, $pwrepeat) {
 
     }
 }
+
+function length_pw($pw) {
+    if (strlen($pw) >= 5) {
+        return false;
+
+    }
+    else {
+        return true;
+
+    }
+}
+
+function specialchar_pw($pw) {
+    if (preg_match('/[!@#$%^&*(),.?":{}|<>]/', $pw)) {
+        return false;
+    }
+    else {
+        return true;
+
+    }
+}
+
+function digit_pw($pw) {
+    if (preg_match('/\d/', $pw)) {
+        return false;
+    }
+    else {
+        return true;
+
+    }
+}
+
+function uppercase_pw($pw) {
+    if (preg_match('/[A-Z]/', $pw)) {
+        return false;
+    }
+    else {
+        return true;
+
+    }
+}
+
+function lowercase_pw($pw) {
+    if (preg_match('/[a-z]/', $pw)) {
+        return false;
+    }
+    else {
+        return true;
+
+    }
+}

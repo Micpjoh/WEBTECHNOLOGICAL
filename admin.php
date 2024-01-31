@@ -74,13 +74,13 @@ $orderscount = order_amount($sqliconn);
                 <table>
 
                     <tr>
-                        <th>product_name</th>
-                        <th>product_info</th>
+                        <th>productname</th>
+                        <th>productinfo</th>
                         <th>price</th>
                         <th>stock</th>
                         <th>img</th>
                         <th>category</th>
-                        <th>Actions</th>
+                        <th>categoryID</th>
                     </tr>
 
                     <?php
@@ -91,8 +91,9 @@ $orderscount = order_amount($sqliconn);
                         echo "<td>" . $row['product_info'] . "</td>";
                         echo "<td>" . $row['price'] . "</td>";
                         echo "<td>" . $row['stock'] . "</td>";
-                        echo "<td> <img style='width: 120px;' src='" . $row['img'] . "' alt='foto van product' /> </td>";
+                        echo "<td> <img style='width: 80px;' src='" . $row['img'] . "' alt='foto van product' /> </td>";
                         echo "<td>" . $row['category'] . "</td>";
+                        echo "<td>" . $row['category_id'] . "</td>";
                         echo "<td> <a href='includes/admindelproduct.inc.php?product_id=" . $row['product_id'] . "'>Delete</a> </td>";
                         echo "</tr>";
                     }
@@ -125,8 +126,21 @@ $orderscount = order_amount($sqliconn);
                 <label for="category">Category:</label>
                 <input type="text" name="category" required><br>
 
+                <label for="category">CategoryID:</label>
+                <input type="text" name="categoryID" required><br>
+
                 <button type="submit" name="submit">Submit when ready!</button>
             </form>
+        </div>
+    </section>
+
+    <section>
+        <div class = "product-box2">
+            <h1>Category ID guidelines</h1>
+            <p>categoryID 1 = Sweaters </p>
+            <p>categoryID 2 = Shirts </p>
+            <p>categoryID 3 = Pants </p>
+            <p>categoryID 4 = Beanies </p>
         </div>
     </section>
 

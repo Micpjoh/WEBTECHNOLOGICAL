@@ -21,8 +21,6 @@ function sendRequest(prompt) {
     xhr.send(data);
 }
 
-console.log('hey');
-
 document.addEventListener('DOMContentLoaded', function() {
     var promptInput = document.getElementById('promptInput');
     var submitButton = document.getElementById('submitButton');
@@ -30,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     promptInput.addEventListener('input', function() {
         submitButton.disabled = this.value.trim() === '';
     });
-    
+
     document.getElementById('promptForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -41,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         for (var i = 0; i < clothingRadios.length; i++) {
             if (clothingRadios[i].checked) {
                 selectedClothing = clothingRadios[i].value;
-                console.log("Selected Clothing: " + selectedClothing);
                 break;
             }
         }
@@ -50,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
         for (var i = 0; i < colorRadios.length; i++) {
             if (colorRadios[i].checked) {
                 selectedColor = colorRadios[i].value;
-                console.log("Selected Color: " + selectedColor);
                 break;
             }   
         }
@@ -59,4 +55,26 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Full Prompt: " + fullPrompt);
         sendRequest(fullPrompt);
     });
+});
+
+document.getElementById('buyButton').addEventListener('click', function() {
+    var selectedClothing = document.querySelector('input[name="clothing"]:checked').value;
+    var selectedColor = document.querySelector('input[name="Color"]:checked').value;
+    var userInput = document.getElementById('promptInput').value;
+
+    var productDetails = `Clothing: ${selectedClothing} \n
+     Color: ${selectedColor} \n
+     Design: ${userInput}`;
+    document.getElementById('selectedProductDetails').innerText = productDetails;
+
+    var imgSrc = document.getElementById('resultImage').src;
+    if (imgSrc) {
+        document.getElementById('popupImage').src = imgSrc;
+    }
+
+    document.getElementById('popupWindow').style.display = 'block';
+});
+
+document.querySelector('.close-btn').addEventListener('click', function() {
+    document.getElementById('popupWindow').style.display = 'none';
 });

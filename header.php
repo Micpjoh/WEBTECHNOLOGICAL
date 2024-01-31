@@ -13,7 +13,7 @@
                     <a href="clothing-template.php?cat=1">Sweaters</a>
                     <a href="clothing-template.php?cat=2">Shirts</a>
                     <a href="clothing-template.php?cat=3">Pants</a>
-                    <a href="clothing-template.php?cat=4">accesories</a>
+                    <a href="clothing-template.php?cat=4">Beanies</a>
                 </div> 
             </div> 
                 <a href="design.php">Design</a>

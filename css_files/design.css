@@ -27,18 +27,21 @@
 }
 
 .design-box:first-child {
-    flex:1;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    flex: 2;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     margin: 10px;
     display: flex;
-    flex-direction:row;
+    flex-direction:column;
 }
 .design-box {
     flex:1;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     margin: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 .design-box:first-child img {
     width: 100%;
@@ -49,16 +52,18 @@
     height: auto;
 }
 .design-info:first-child {
+    padding-left: 25px;
     margin: 15px;
     flex-grow: 1;
 }
 .design-info {
+    font: 50px;
     margin: 15px;
     flex-grow: 1;
 }
 .image-slideshow-container {
     display: flex;
-    flex-direction: row; 
+    flex-direction: column; 
     z-index: 10;
 }
 #slideshow-container {
@@ -91,6 +96,22 @@
     width: 100%;
     text-align: center;
   }
+  .start-designing-link {
+    display: inline-block; 
+    padding: 10px 20px;
+    background-color: green; 
+    color: white; 
+    text-align: center; 
+    text-decoration: none; 
+    font-size: 18px; 
+    border-radius: 5px; 
+    font-weight: bold; 
+}
+
+.start-designing-link:hover {
+    background-color: darkgreen; 
+    cursor: pointer; 
+}
   .numbertext {
     color: #f2f2f2;
     font-size: 12px;

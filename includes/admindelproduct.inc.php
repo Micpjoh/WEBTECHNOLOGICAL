@@ -8,7 +8,7 @@ require_once "databasis.inc.php";
 
 //check of user admin is, anders geen toegang
 if (!isset($_SESSION['user_id']) || ($_SESSION['user_type'] !== "admin")) {
-    header("Location: ../home.php");
+    header("Location: ../index.php");
     die();
 }
 

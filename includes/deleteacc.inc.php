@@ -14,6 +14,11 @@ if (isset($_POST['submit'])) {
         setcookie('rememberme', '', time() - 3600, "/");
     }
 
+    $userId = $_SESSION['user_id'];
+    $preparedstatement = $sqliconn->prepare("UPDATE orders SET user_id = NULL WHERE user_id = ?");
+    $preparedstatement->bind_param("i", $userId);
+    $preparedstatement->execute();
+    
     // delete userdata van database en log uit
     $preparedstatement = $sqliconn->prepare("DELETE FROM users WHERE user_id = ?");
     $preparedstatement->bind_param("i", $_SESSION['user_id']);

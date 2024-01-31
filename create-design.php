@@ -89,6 +89,29 @@ require_once "includes/securesession.inc.php";
          <img id="resultImage" src="" alt="AI generated result" style="display:none;">
         </div>
     </section>
+    <button id="buyButton" class="buyButton">Buy</button>
+
+    <div id="popupWindow" class="popup" style="display: none;">
+       <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <div class="popup-body">
+                <div class="popup-image">
+                    <img id="popupImage" src="" alt="Selected Product Image">
+                </div>
+                <div class="popup-info">
+                    <h1>Your custom piece</h1><br>
+                    <p id="selectedProductDetails"></p>
+                    <p id="modelInfo"></p>
+                    <p id="colorInfo"></p>
+                    <p id="priceInfo"></p><br><br><br>
+                    <button class="payButton">Pay</button>
+                    <button class="payButton">Pay and add to catalog</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="js/create-design.js"></script>
 
     <!-- FOOTER -->

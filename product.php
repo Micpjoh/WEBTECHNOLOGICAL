@@ -1,11 +1,5 @@
 <?php
-
 require_once "includes/securesession.inc.php";
-
-if (isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    die();
-}
 
 ?>
 
@@ -39,49 +33,41 @@ if (isset($_SESSION['user_id'])) {
     <section id='content'>
         <div id='cloth-container'>
             <div class='cloth-rows'>
-<?php
+            <?php
+                require_once "includes/databasis.inc.php";
 
-            require_once "includes/databasis.inc.php";
+                if(isset($_GET['product_id'])){
+                    // Sanitize input to prevent SQL injection
+                    $product_id = $sqliconn->real_escape_string($_GET['product_id']);
 
-               if(isset($_GET['product_id'])){
-                   // Sanitize input to prevent SQL injection
-                   $product_id = $sqliconn->real_escape_string($_GET['product_id']);
+                    // Query for products with stock greater than 0
+                    $sql = "SELECT * FROM products WHERE product_id = $product_id";
+                    $result = $sqliconn->query($sql);
 
-                   // Query for products with stock greater than 0
-                   $sql = "SELECT * FROM products WHERE product_id = $product_id";
-                   $result = $sqliconn->query($sql);
+                    // Error handling
+                    if (!$result) {
+                        die('Error fetching products: ' . $sqliconn->error);
+                    }
 
-                   // Error handling
-                   if (!$result) {
-                       die('Error fetching products: ' . $sqliconn->error);
-                   }
+                    while($row = $result->fetch_assoc()){
+                        $product_name = $row['product_name'];
+                        $product_img = $row['img'];
+                        $price = $row['price'];
 
-                   while($row = $result->fetch_assoc()){
-                       $product_name = $row['product_name'];
-                       $product_img = $row['img'];
-                       $price = $row['price'];
-                       
-
-
-echo "
-<div class='cloth'>
-<div class='img-here'>
-    <img src='$product_img'>
-</div>
-<div class='name-container'>
-    <h2 class='name'>$product_name</h2>
-</div>
-</a>";
-        };      
-      
-    };
-
-
-
-?>
-
-</div>
-</div>        
+                        echo "
+                        <div class='cloth'>
+                            <div class='img-here'>
+                                <img src='$product_img'>
+                            </div>
+                            <div class='name-container'>
+                                <h2 class='name'>$product_name</h2>
+                            </div>
+                        </div>";
+                    }
+                }
+            ?>
+            </div>
+            </div>        
 
 
 </section>"
