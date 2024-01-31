@@ -1,176 +1,237 @@
 #body1 {
-    display: grid;
-    text-align: center;
-    background-color: #081c3c;
-    border-bottom: calc(1rem/16) solid #737070;
-    color: white;
-    padding: calc(30rem/16);
+  display: grid;
+  text-align: center;
+  background-color: #081c3c;
+  border-bottom: calc(1rem/16) solid #737070;
+  color: white;
+  padding: calc(30rem/16);
 }
 
 #body1 h2 {
-    font-size: calc(20rem/16);
+  font-size: calc(20rem/16);
 }
 
 .header-text h1 {
-    font-size: calc(80rem/16);
+  font-size: calc(80rem/16);
 }
 
 #create-design-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 80px;
-    margin-top: 30px;
-    justify-content: space-around;
-    align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 80px;
+  margin-top: 30px;
+  justify-content: space-around;
+  align-items: stretch;
 }
 
 .create-design-box:first-child {
-    flex:1;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
+  flex:1;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
 }   
-  
-  input {
-    margin: 0.8rem;
-  }
-  
+
+input {
+  margin: 0.8rem;
+}
+
 .create-design-box {
-    flex:1;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-}
-.create-design-box:first-child img {
-    width: 100%;
-    height: auto;
-}
-.create-design-box img {
-    width: 100%;
-    height: auto;
-}
-.create-design-info:first-child {
-    margin: 15px;
-    flex-grow: 1;
-}
-.create-design-info {
-    margin: 15px;
-    flex-grow: 1;
-}
-
-.create-design-info p{
-    color:#797979;
-}
-
-.button-container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  /* Hide the browser's default radio button */
-  .button-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-  }
-  
-  /* Create a custom radio button */
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .button-container:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
-  
-  /* When the radio button is checked, add a blue background */
-  .button-container input:checked ~ .checkmark {
-    background-color: green;
-  }
-  
-  /* Create the indicator (the dot/circle - hidden when not checked) */
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  /* Show the indicator (dot/circle) when checked */
-  .button-container input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  /* Style the indicator (dot/circle) */
-  .button-container .checkmark:after {
-       top: 9px;
-      left: 9px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: white;
-  }
-/*from W3school*/
-
-@media (max-width: 1000px) {
-    #create-design-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .create-design-box:first-child {
-        margin-left: 0;
-        margin-right: 0;
-        width: auto;
-    }
-
-    .create-design-box {
-        width: auto;
-        margin-right: 0;
-        margin-left: 0;
-        margin-bottom: 20px;
-        height: fit-content;
-    }
-}
-
-/* BUY AND STORE BUTTON */
-.sections-container {
+  flex:1;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin: 10px;
   display: flex;
   flex-direction: column;
 }
-
-#addtoStoreForm button {
-  display: none;
-  margin: 0 auto;
-  margin-bottom: 80px; 
-  background-color: #081c3c;
-  color: white;
-  border: calc(4rem/16) solid #f3f1ef;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: calc(18rem/16);
-  padding: 20px;
-  text-align: center;
+.create-design-box:first-child img {
+  width: 100%;
+  height: auto;
+}
+.create-design-box img {
+  width: 100%;
+  height: auto;
+}
+.create-design-info:first-child {
+  margin: 15px;
+  flex-grow: 1;
+}
+.create-design-info {
+  margin: 15px;
+  flex-grow: 1;
 }
 
-#addtoStoreForm button:hover {
-  transform: translateY(-5px);
-  transition: transform 0.2s ease-in-out;
+.create-design-info p{
+  color:#797979;
+}
 
+.button-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.button-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.button-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.button-container input:checked ~ .checkmark {
+  background-color: green;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.button-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.button-container .checkmark:after {
+     top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+/*from W3school*/
+
+.popup {
+all: initial;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.7); 
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1000;
+}
+
+.popup-content {
+position: relative;
+background: #fff;
+padding: 20px;
+border-radius: 5px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+width: 50%; 
+max-width: 600px; 
+z-index: 1001; 
+}
+.popup-body {
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+
+.popup-image img {
+width: 250px; /* Adjust size as needed */
+height: auto;
+flex-direction: column;
+}
+
+.popup-info {
+flex-direction: column;
+text-align: left;
+}
+.payButton {
+/* Style your payment button */
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+border-radius: 5px;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+}
+
+.close-btn {
+cursor: pointer;
+position: absolute;
+top: 10px;
+right: 15px;
+font-size: 20px;
+z-index: 1002; /* Ensures the close button is clickable */
+}
+
+.buyButton {
+position: absolute;
+right: 90px;
+bottom: 230px;
+display: inline-block; 
+padding: 18px 35px;
+background-color: green; 
+color: white; 
+text-align: center; 
+text-decoration: none; 
+font-size: 21px; 
+border-radius: 5px; 
+font-weight: bold; 
+}
+
+.buyButton:hover {
+background-color: darkgreen; 
+cursor: pointer; 
+}
+
+@media (max-width: 1000px) {
+  #create-design-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .create-design-box:first-child {
+      margin-left: 0;
+      margin-right: 0;
+      width: auto;
+  }
+
+  .create-design-box {
+      width: auto;
+      margin-right: 0;
+      margin-left: 0;
+      margin-bottom: 20px;
+      height: fit-content;
+  }
+  .popup-body {
+    flex-direction: column;
+  }
 }
