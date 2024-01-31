@@ -17,9 +17,30 @@
 }
 
 #cart-container {
-    display: flex;
-    padding-left: 30px;
-    padding-right: 30px;
-    flex-direction: column;
+    width: 70%;
+    margin: auto;
+    padding: 20px;
 }
 
+.cart-header {
+    color: black;
+    padding: 10px;
+}
+
+.cartinfo-box {
+    display: flex;
+    height: 500px;
+}
+
+.item-box {
+    flex: 2;
+    padding: 10px;
+}
+
+.payment-box {
+    flex: 1;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    text-align: center;
+}
