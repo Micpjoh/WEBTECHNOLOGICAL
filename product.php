@@ -1,11 +1,5 @@
 <?php
-
 require_once "includes/securesession.inc.php";
-
-if (isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    die();
-}
 
 ?>
 

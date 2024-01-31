@@ -101,21 +101,6 @@ require_once "includes/securesession.inc.php";
                 </p>
             </div>
         </div>
-
-        <div class="aboutus-box">
-            <img src="img/treeplanting.jpg">
-            <div class="aboutus-info">
-                <h2>We help preserving the Amazon</h2>
-                <p>
-                At <span class="logoname">GreenWear</span>, we're passionate about preserving the Amazon rainforest. 
-                Through impactful partnerships with conservation organizations, 
-                we dedicate resources to prevent deforestation, support local communities, 
-                and promote sustainable practices.<br><br> Your choice of <span class="logoname">GreenWear</span> contributes 
-                directly to the protection of this vital ecosystem, 
-                helping ensure a greener and healthier future for the Amazon and our planet.
-                </p>
-            </div>
-        </div>
     </section>
 
     <!-- FOOTER -->

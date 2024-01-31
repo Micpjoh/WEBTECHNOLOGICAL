@@ -9,8 +9,8 @@ if (!isset($_SESSION['user_id'])) {
     die();
 }
 if(isset($_POST['imageUrl']) && isset($_POST['clothing'])) {
-    $p_name = "User Created";
-    $p_info = "made by user";
+    $p_name = "Custom " . $_POST['clothing'];
+    $p_info = "made by " . $_SESSION["user_name"];
     $p_price = 29.99;
     $p_stock = 30;
     $image_url = $_POST['imageUrl'];
@@ -34,7 +34,8 @@ if(isset($_POST['imageUrl']) && isset($_POST['clothing'])) {
     create_order($_SESSION['user_id'], $sqliconn);
 
     echo "<script>alert('Thank you for shopping at Greenwear, your created item has also successfully been added to our catalog!');         
-    window.location.href = '../catalog.php';</script>";
+    </script>";
+    header("refresh:0;url=../catalog.php");
     die();
 
     $preparedstatement->close();
