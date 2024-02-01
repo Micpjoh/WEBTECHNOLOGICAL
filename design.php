@@ -32,7 +32,8 @@ require_once "includes/securesession.inc.php";
     <!-- BODY SECTION -->
         <section id="design-container">
             <div class="design-box">
-
+                
+                <!--Info about how our custom designs are done-->
                 <div class="Design-info">
                     <h2>3 EASY STEPS</h2><br><br><br>
                     <p>
@@ -59,17 +60,14 @@ require_once "includes/securesession.inc.php";
             <!-- Slideshow -->
             <div class="design-box">
                 <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
                     <img src="img/p1.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
                     <img src="img/p2.jpg" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
                     <img src="img/p3.jpg" style="width:100%">
                 </div>
 

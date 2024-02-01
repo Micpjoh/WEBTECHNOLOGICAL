@@ -7,7 +7,7 @@ document.querySelectorAll('label.button-container input[name="clothing"]').forEa
         document.getElementById('selectedClothingInput').value = selectedClothing;
     });
 });
-
+//Turn bloburl to base64 url to display in the admin 
 function blobUrlToBase64(blobUrl, callback) {
     const xhr = new XMLHttpRequest();
     xhr.onload = function() {
@@ -21,7 +21,7 @@ function blobUrlToBase64(blobUrl, callback) {
     xhr.responseType = 'blob';
     xhr.send();
 }
-
+//add image to store
 document.getElementById('addtoStoreForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -34,3 +34,4 @@ document.getElementById('addtoStoreForm').addEventListener('submit', function(ev
     });
 });
 
+//all the code here prepares the images to be transported to the catalog and admin page

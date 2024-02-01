@@ -36,6 +36,7 @@ if (!isset($_SESSION['user_id'])) {
                 <h1>Create your piece</h1>
             </div>
         </section>
+        <!-- 3 steps divided in 3 design containers placed horizontally next to eaach other -->
         <section id="create-design-container">
         <div class="create-design-box">
                 <div class="create-design-info">
@@ -44,7 +45,7 @@ if (!isset($_SESSION['user_id'])) {
                     Our selection may be limited, but rest assured that everything you see is made of the highest quality materials.
                     Nothing in the current market comes close to our eco-friendly sourced materials ensuring that you look amazing with a piece of clothing that will last forever.
                     </p><br><br>
-                
+                    <!-- Button to choose what style of clothing piece you want -->
                     <label class="button-container">Shirt
                         <input type="radio"  name="clothing" value ="Shirt">
                         <span class="checkmark"></span>
@@ -71,6 +72,7 @@ if (!isset($_SESSION['user_id'])) {
                         We are a startup company so sadly our current selection of clothing is limited to only black and white.<br><br>
                         But rest assured in the future we shall release different colors to pick from and many more customisation options.
                     </p><br><br><br>
+                    <!-- Button to pick the color of the piece-->
                     <label class="button-container">White
                         <input type="radio"  name="Color" value="White">
                         <span class="checkmark"></span>
@@ -88,21 +90,22 @@ if (!isset($_SESSION['user_id'])) {
                     <p>
                         Just write whatever you wish to see on your clothing piece. Wait 20-30 seconds and be amazed by your own creation.<br><br>
                         Don't like it? Just re-write your request to your hearts content.
-
+                    <!-- Here the user writes what he wants to see printed on his clothing piece-->
                         <form id="promptForm">
                             <input type="text" id="promptInput" placeholder="Enter your prompt">
                             <button type="submit" id ="submitButton" disabled>See your imagination come to life</button>
                         </form>
                     </p>
             </div>
+            <!-- the generated image gets displayed-->
             <img id="resultImage" src="" alt="AI generated result" style="display:none;">
             </div>
         </section>
-
+        <!-- When the image is generated the proceed to payment button appears-->
         <section id="addtoStoreForm1">
             <button id="buyButton" class="buyButton">Proceed to payment</button>
         </section>
-
+    <!--Pressing the button brings you to this pop-up with the details of your custom piece and the 2 options to just pay or pay and add to catalog-->
         <div id="popupWindow" class="popup" style="display: none;">
             <div class="popup-content">
                 <span class="close-btn">&times;</span>
@@ -116,9 +119,11 @@ if (!isset($_SESSION['user_id'])) {
                         <p id="modelInfo"></p>
                         <p id="colorInfo"></p><br><br><br>
                         <p id="priceInfo">Price: €29,99</p><br><br><br>
+                        <!--This button will only complete the payment-->
                         <form action="includes/addtoStore.php" method="POST">
                             <button class= "payButton">Pay</button>
                         </form>
+                        <!--This button will actually add the product to the catalog as well-->
                         <form id="addtoStoreForm" action="includes/addtoStore.php" method="POST">
                             <input type="hidden" id="imageUrlInput" name="imageUrl" value="">
                             <input type="hidden" id="selectedClothingInput" name="clothing" value="">
@@ -130,7 +135,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
 
     </div>
-
+    
     <script src="js/create-design.js"></script>
     <script src="js/addtoStore.js"></script>
     <!-- FOOTER -->
