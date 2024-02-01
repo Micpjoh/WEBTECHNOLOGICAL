@@ -20,7 +20,7 @@
     <section>
         <div id="header-cloth">
             <h1>Our products</h1>
-            <h2>Upgrade your wardrobe with your favorite prints on our high quality basics</h2>
+            <h2>upgrade your wardrobe with your favorite prints on our high quality basics</h2>
         </div>
     </section>
 
