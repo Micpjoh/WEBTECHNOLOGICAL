@@ -19,14 +19,6 @@
     <section>
         <h1 id="title">Category</h1>
         <div id="mother-div">
-            <div id="filter">
-                <!-- depending on what page we on categories will load from db here too-->
-                <h2>Filters</h2>
-                <h3>Sweaters & Hoodies</h3>
-                <h3>T-shirts & Tops</h3>
-                <h3>Pants & Bottoms</h3>
-                <h3>Accessories</h3>
-            </div>
             <div id="big-div">
                
                 <div id="row-container" class="cloth-row">

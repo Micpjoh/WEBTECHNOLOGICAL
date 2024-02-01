@@ -44,3 +44,18 @@
     border: 1px solid #ccc;
     text-align: center;
 }
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.cart-item img {
+    max-width: 100px; /* Adjust the size as needed */
+    margin-right: 20px; /* Space between image and text */
+}
+
+.cart-item h3, 
+.cart-item p {
+    margin: 0 10px; /* Adjust spacing as needed */
+}
