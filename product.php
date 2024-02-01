@@ -124,7 +124,7 @@ require_once "includes/securesession.inc.php";
                     alert(response.message);
                 },
                 error: function() {
-                    alert("An error occurred while processing the request.");
+                    alert("You need to login in order to add a product to cart");
                 }
             });
         });
