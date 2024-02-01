@@ -1,5 +1,6 @@
 <?php
-
+require_once "includes/databasis.inc.php";
+require_once "includes/securesession.inc.php";
 require_once "includes/clothing-functions.php";
 
 ?>
