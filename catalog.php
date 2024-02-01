@@ -20,46 +20,38 @@
     <section>
         <div id="header-cloth">
             <h1>Our products</h1>
-            <h2>upgrade your wardrobe with your favorite prints on our high quality basics</h2>
+            <h2>Upgrade your wardrobe with your favorite prints on our high quality basics</h2>
         </div>
     </section>
 
     <section id='content'>
         <div id='cloth-container'>
             <div class='cloth-rows'>
-                <?php
+            
+            <?php
+            require_once "includes/clothing-functions.php"; // Include the file containing the getCategories() function
 
-                require_once "includes/databasis.inc.php";
+            // Get the categories from the database
+            $categories = getCategories();
 
-                // Query for products with stock greater than 0
-                $category = "SELECT * FROM category";
-                $secure = $sqliconn->prepare($category);
+            // Output the categories in HTML format
+            foreach ($categories as $category) {
+                $category_name = $category['category_name'];
+                $category_img = $category['img'];
+                $cat_id = $category['category_id'];
 
-                $secure->execute();
-
-                $result = $secure->get_result();
-
-                // Error handling
-                if (!$result) {
-                    die('Error fetching categories: ' . $secure->error);
-                }
-
-                while($row= $result->fetch_assoc()){
-                    $category_name = $row['category_name'];
-                    $category_img = $row['img'];
-                    $cat_id = $row['category_id'];
-
-                    echo "
-                    <a class='cloth' href='clothing-template.php?cat=$cat_id'>
-                        <div class='img-here'>
-                            <img src='$category_img'>
-                        </div>
-                        <div class='name-container'>
-                            <h2 class='name'>$category_name</h2>
-                        </div>
-                    </a>";
-                };      
-                ?>
+            // Display category HTML markup
+                echo "
+                <a style='text-decoration:none' class='cloth' href='clothing-template.php?cat=$cat_id'>
+                     <div class='img-here'>
+                        <img src='$category_img'>
+                    </div>
+                    <div class='name-container'>
+                        <h2 class='name'>$category_name</h2>
+                    </div>
+                  </a>";
+            };
+?>
             </div>
         </div>        
     </section>

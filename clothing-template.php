@@ -1,3 +1,10 @@
+<?php
+
+require_once "includes/clothing-functions.php";
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,58 +24,34 @@
     <?php include "header.php"; ?>
 
     <section>
-        <h1 id="title">Category</h1>
+        <div id="header-cloth">
+        <?php
+        if (isset($_GET['cat'])) {
+            $cat_id = $sqliconn->real_escape_string($_GET['cat']);
+
+            getname($cat_id);
+        }
+
+        ?>
+        
+        </div>
+    </section>
+
+    <section>
         <div id="mother-div">
             <div id="big-div">
                
-                <div id="row-container" class="cloth-row">
-            
-                    <?php 
-                
-                    require_once "includes/databasis.inc.php";
+            <div id="row-container" class="cloth-row">
+            <?php
 
-                    if(isset($_GET['cat'])){
-                        // Sanitize input to prevent SQL injection
-                        $cat_id = $sqliconn->real_escape_string($_GET['cat']);
+            //if category_id in url get products from that category
+            if (isset($_GET['cat'])) {
+                $cat_id = $sqliconn->real_escape_string($_GET['cat']);
 
-                    // Query for products with stock greater than 0
-                    $sql = "SELECT * FROM products WHERE category_id = ? AND stock >0";
-                    $secure = $sqliconn->prepare($sql);
+                getProducts($cat_id);
+            }
+            ?>
 
-                    $secure->bind_param("i", $cat_id);
-
-                    $secure->execute();
-
-                    $result = $secure->get_result();
-
-                    // Error handling
-                    if (!$result) {
-                        die('Error fetching products: ' . $secure->error);
-                    }
-
-                    while($row = $result->fetch_assoc()){
-                        $product_name = $row['product_name'];
-                        $product_img = $row['img'];
-                        $price = $row['price'];
-                        $product_id = $row ['product_id'];
-
-
-                    echo "
-
-                        
-                        <a class='item' href= 'product.php?product_id=$product_id'>
-                            <div class='imghere'>
-                                <img src=$product_img>
-                            </div>
-                            <div class='item-desc'>
-                                <h3 class='name'>$product_name</h3>
-                                <h3 class='price'>$price</h3>
-                            </div>
-                        </a> ";
-                    };
-                };
-
-                ?>
             </div>
             </div>
         </div>
