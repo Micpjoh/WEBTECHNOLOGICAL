@@ -1,3 +1,16 @@
+<?php
+require_once "includes/securesession.inc.php";
+require_once "includes/databasis.inc.php";
+
+
+// Query for products with stock greater than 0
+$category = "SELECT * FROM category";
+$secure = $sqliconn->prepare($category);
+
+$secure->execute();
+
+$result = $secure->get_result();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +32,7 @@
     <!-- BODY SECTION -->
     <section>
         <div id="header-cloth">
-            <h1>Our products</h1>
+            <h1>Our catalog</h1>
             <h2>upgrade your wardrobe with your favorite prints on our high quality basics</h2>
         </div>
     </section>
@@ -28,22 +41,6 @@
         <div id='cloth-container'>
             <div class='cloth-rows'>
                 <?php
-
-                require_once "includes/databasis.inc.php";
-
-                // Query for products with stock greater than 0
-                $category = "SELECT * FROM category";
-                $secure = $sqliconn->prepare($category);
-
-                $secure->execute();
-
-                $result = $secure->get_result();
-
-                // Error handling
-                if (!$result) {
-                    die('Error fetching categories: ' . $secure->error);
-                }
-
                 while($row= $result->fetch_assoc()){
                     $category_name = $row['category_name'];
                     $category_img = $row['img'];

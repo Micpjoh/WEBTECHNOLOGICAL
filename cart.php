@@ -2,25 +2,18 @@
 require_once "includes/databasis.inc.php";
 require_once "includes/securesession.inc.php";
 
-$userId = $_SESSION['user_id']; // Replace with your actual user ID variable from session
-
-// SQL to fetch cart items and their corresponding product details
-$sql = "SELECT p.product_name, p.img, p.price, c.quantity 
-        FROM cart c 
-        INNER JOIN products p ON c.product_id = p.product_id 
-        WHERE c.user_id = ?";
+$sql = "SELECT cart.product_id, products.product_name, products.img, products.price, cart.quantity, (products.price * cart.quantity) AS total_cost
+        FROM cart
+        INNER JOIN products ON cart.product_id = products.product_id
+        WHERE cart.user_id = ?";
 
 $stmt = $sqliconn->prepare($sql);
-
-if ($stmt === false) {
-    die("Error preparing the statement: " . $sqliconn->error);
-}
-
-// Bind parameters and execute
-$stmt->bind_param("i", $userId);
+$stmt->bind_param("i", $_SESSION['user_id']);
 $stmt->execute();
 
 $result = $stmt->get_result();
+
+$totalCost = 0; // Initialize total cost
 ?>
 
 <!DOCTYPE html>
@@ -56,32 +49,55 @@ $result = $stmt->get_result();
             <h1>Greenwear shopping cart:</h1>
 
         </div>
-
+        <!-- DONT FORGET TO ADD ALT TO IMAGES -->
         <div class = "cartinfo-box">
             <div class ="item-box">
             <?php
                 if ($result->num_rows > 0) {
-                    // Output data of each row
                     while($row = $result->fetch_assoc()) {
+                        $product_name = $row['product_name'];
+                        $product_img = $row['img'];
+                        $price = $row['price'];
+                        $quantity = $row['quantity'];
                         echo "<div class='cart-item'>";
-                        echo "<img src='" . $row['img'] . "' alt='" . $row['product_name'] . "'>";
-                        echo "<h3>" . $row['product_name'] . "</h3>";
-                        echo "<p>Price: $" . $row['price'] . "</p>";
-                        echo "<p>Quantity: " . $row['quantity'] . "</p>";
+                        echo "<img src='$product_img'>";
+                        echo "<h3>$product_name</h3>";
+                        echo "<p>Price: $price</p>";
+                        echo "<p>Amount: $quantity</p>";
+                        echo "<form action='removefromcart.php' method='POST'>";
+                        echo "<input type='hidden' name='product_id' value='" . $row['product_id'] . "'>";
+                        echo "<button type='submit' name='remove'>Remove</button>";
+                        echo "</form>";
                         echo "</div>";
+                        $totalCost += $row['total_cost'];
+
                     }
                 } else {
-                    echo "Your cart is empty";
+                    echo "No items brokeboi xd";
                 }
                 $stmt->close();
             ?>
             </div>
 
-            <div class ="payment-box">
-                <h1>Cart total</h1>
-                
+                <div class ="payment-box">
+                    <div>
+                    <h1>Cart total</h1>
+                    </div>
+
+                    <div>
+                    <p>Total Cost: €<?php echo number_format($totalCost, 2); ?></p>
+                    </div>
+
+                    <div>
+                        <div class="button-box">
+                            <form action="checkout.php" method="post">
+                                <button type="submit" name="submit">Checkout</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- FOOTER -->

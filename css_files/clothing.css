@@ -1,3 +1,21 @@
+/* BODY 1 */
+#body1 {
+    display: grid;
+    text-align: center;
+    background-color: #081c3c;
+    border-bottom: calc(1rem/16) solid #737070;
+    color: white;
+    padding: calc(30rem/16);
+}
+
+#body1 h2 {
+    font-size: calc(20rem/16);
+}
+
+.header-text h1 {
+    font-size: calc(80rem/16);
+}
+
 #title {
     display: flex;
     justify-content: center;
@@ -46,6 +64,7 @@
     grid-template-columns: repeat(4, 1fr); /* 4 items per row */
     gap: 20px; /* Adjust the gap between items */
     justify-content: center;
+    margin:30px;
 }
 
 .item {
@@ -54,7 +73,9 @@
     align-items: center;
     text-align: center;
     padding: 10px;
-    border: 1px solid #ddd; /* Add border for each item */
+    text-decoration: none; 
+    border: calc(4rem/16) solid #f3f1ef;;
+    color: black;
 }
 .cloth-row {
 
@@ -67,8 +88,9 @@
 
 .imghere {
     background-color: pink;
-    height: 400px;
-    width: 350px;
+    height: 35
+    0px;
+    width: 300px;
 }
 
 .imghere img {
@@ -77,6 +99,6 @@
     object-fit: cover;
 }
 
-.imghere:hover {
+.item:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
 }

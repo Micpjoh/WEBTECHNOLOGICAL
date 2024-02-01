@@ -1,3 +1,20 @@
+<?php
+require_once "includes/securesession.inc.php";
+require_once "includes/databasis.inc.php";
+if(isset($_GET['cat'])){
+    // Sanitize input to prevent SQL injection
+    $cat_id = $sqliconn->real_escape_string($_GET['cat']);
+
+// Query for products with stock greater than 0
+$sql = "SELECT * FROM products WHERE category_id = ? AND stock >0";
+
+$secure = $sqliconn->prepare($sql);
+$secure->bind_param("i", $cat_id);
+$secure->execute();
+$result = $secure->get_result();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,39 +30,25 @@
 </head>
 
 <body>
+
     <!-- NAVIGATION BAR -->
     <?php include "header.php"; ?>
+    <!-- BANNER SECTION -->
+    <section id="body1">
+    <div class="header-text">
+        <h1>Our products</h1>
+    </div>
+    <h2>A single size clothing for all humans :)</h2>
+    </section>
 
+    <!-- BODY -->
     <section>
-        <h1 id="title">Category</h1>
         <div id="mother-div">
             <div id="big-div">
                
                 <div id="row-container" class="cloth-row">
             
-                    <?php 
-                
-                    require_once "includes/databasis.inc.php";
-
-                    if(isset($_GET['cat'])){
-                        // Sanitize input to prevent SQL injection
-                        $cat_id = $sqliconn->real_escape_string($_GET['cat']);
-
-                    // Query for products with stock greater than 0
-                    $sql = "SELECT * FROM products WHERE category_id = ? AND stock >0";
-                    $secure = $sqliconn->prepare($sql);
-
-                    $secure->bind_param("i", $cat_id);
-
-                    $secure->execute();
-
-                    $result = $secure->get_result();
-
-                    // Error handling
-                    if (!$result) {
-                        die('Error fetching products: ' . $secure->error);
-                    }
-
+                    <?php
                     while($row = $result->fetch_assoc()){
                         $product_name = $row['product_name'];
                         $product_img = $row['img'];
@@ -54,15 +57,13 @@
 
 
                     echo "
-
-                        
                         <a class='item' href= 'product.php?product_id=$product_id'>
                             <div class='imghere'>
                                 <img src=$product_img>
                             </div>
                             <div class='item-desc'>
                                 <h3 class='name'>$product_name</h3>
-                                <h3 class='price'>$price</h3>
+                                <h3 class='price'>€" . $price . "</h3>
                             </div>
                         </a> ";
                     };
