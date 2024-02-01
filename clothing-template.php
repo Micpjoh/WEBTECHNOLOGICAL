@@ -1,5 +1,4 @@
 <?php
-require_once "includes/databasis.inc.php";
 require_once "includes/securesession.inc.php";
 require_once "includes/clothing-functions.php";
 
@@ -27,9 +26,10 @@ require_once "includes/clothing-functions.php";
     <section>
         <div id="header-cloth">
         <?php
+        // if category id in url get the name of the category corresponding to the id in the url
         if (isset($_GET['cat'])) {
             $cat_id = $sqliconn->real_escape_string($_GET['cat']);
-
+            // call function
             getname($cat_id);
         }
 

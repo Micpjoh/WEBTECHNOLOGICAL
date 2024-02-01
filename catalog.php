@@ -1,5 +1,4 @@
 <?php
-require_once "includes/databasis.inc.php";
 require_once "includes/securesession.inc.php";
 ?>
 <!DOCTYPE html>
@@ -33,29 +32,11 @@ require_once "includes/securesession.inc.php";
             <div class='cloth-rows'>
             
             <?php
-            require_once "includes/clothing-functions.php"; // Include the file containing the getCategories() function
+            require_once "includes/clothing-functions.php";
 
             // Get the categories from the database
-            $categories = getCategories();
-
-            // Output the categories in HTML format
-            foreach ($categories as $category) {
-                $category_name = $category['category_name'];
-                $category_img = $category['img'];
-                $cat_id = $category['category_id'];
-
-            // Display category HTML markup
-                echo "
-                <a style='text-decoration:none' class='cloth' href='clothing-template.php?cat=$cat_id'>
-                     <div class='img-here'>
-                        <img src='$category_img'>
-                    </div>
-                    <div class='name-container'>
-                        <h2 class='name'>$category_name</h2>
-                    </div>
-                  </a>";
-            };
-?>
+            getCategories();
+            ?>
             </div>
         </div>        
     </section>
