@@ -49,11 +49,14 @@ require_once "includes/securesession.inc.php";
 
             $result = $secure->get_result();
 
+            // go through the product and display all the information on the page
+            // use stock to avoid users trying to buy more than what is available
+            // Add to cart button which takes the quantity/product_id with it
             while($row = $result->fetch_assoc()){
                 $product_name = $row['product_name'];
                 $product_img = $row['img'];
                 $price = $row['price'];
-                $desc = $row['product_info'];
+                $product_info = $row['product_info'];
                 $stock = $row['stock'];
                 echo "
                 <div class='product-container'>
@@ -72,12 +75,12 @@ require_once "includes/securesession.inc.php";
                             <h3 class='desc'>$price</h3>
 
                             <label for='desc'>Description:</label>
-                            <h3 class='desc'>$desc</h3>
+                            <h3 class='desc'>$product_info</h3>
 
                             <label for='desc'>Stock:</label>
                             <h3 class='desc'>In Stock!</h3>
 
-                            <form id='add-to-cart-form' action='addtocart.php' method='POST'>
+                            <form id='add-to-cart-form' action='includes/addtocart.php' method='POST'>
                                 <input type='hidden' name='product_id' value='$product_id'>
                                 <label for='quantity'>Quantity:</label>
                                 <input type='number' name='quantity' value='1' min='1' max='$stock'>
@@ -99,22 +102,29 @@ require_once "includes/securesession.inc.php";
     <!-- FOOTER -->
 
     <?php include "footer.php"; ?>
+
     <script>
     $(document).ready(function() {
+        // call function when dom is loaded, prevent the standard form submit
         $("#add-to-cart-form").on('submit', function(event) {
             event.preventDefault();
 
+            // add submit buttons value, and serialize data in formate to send easily
             var formData = $(this).serialize() + '&submit=' + $("#submit-btn").val();
 
+            // post request to addtocart.php
             $.ajax({
                 type: "POST",
-                url: "addtocart.php",
+                url: "includes/addtocart.php",
                 data: formData,
                 dataType: "json",
                 success: function(response) {
+                    //gives message back if succesfully sent message to server and back
                     alert(response.message);
                 },
                 error: function() {
+                    // if the message/request failed show this alert
+                    // request fails when user not logged in
                     alert("You need to login in order to add a product to cart");
                 }
             });

@@ -41,7 +41,7 @@ if (isset($_SESSION['user_id'])) {
                 <!-- display input errors -->
                 <?php 
                 if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "name-or-pw-is-wrong") {
+                    if ($_GET["error"] == "email-or-pw-is-wrong") {
                         echo "<p class='error-message'>Incorrect email or password.</p>";
                     }
                     if ($_GET["error"] == "fill-in-all-fields") {

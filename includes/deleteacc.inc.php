@@ -2,24 +2,25 @@
 session_start();
 require_once "databasis.inc.php";
 
-// check of user via button is gekomen niet URL.
+// Check if user has came through submit button and not URL
 if (isset($_POST['submit'])) {
-    //verwijder rememberme cookie voor zekerheid, zo geen data van user in database.
-    //gemaakte "orders/bestellingen" van user blijven wel.
+    //remove user cookies
     if (isset($_COOKIE['rememberme'])) {
         $token = $_COOKIE['rememberme'];
+        // prep sql query to delete rememberme
         $preparedstatement = $sqliconn->prepare("DELETE FROM tokenlogin WHERE token = ?");
         $preparedstatement->bind_param("s", $token);
         $preparedstatement->execute();
         setcookie('rememberme', '', time() - 3600, "/");
     }
-
+    // Set user_id in orders to NULL else there will be a foreign key error when deleting user
     $userId = $_SESSION['user_id'];
+    // Update user_id to NULL
     $preparedstatement = $sqliconn->prepare("UPDATE orders SET user_id = NULL WHERE user_id = ?");
     $preparedstatement->bind_param("i", $userId);
     $preparedstatement->execute();
     
-    // delete userdata van database en log uit
+    // Delete the users account
     $preparedstatement = $sqliconn->prepare("DELETE FROM users WHERE user_id = ?");
     $preparedstatement->bind_param("i", $_SESSION['user_id']);
     $preparedstatement->execute();

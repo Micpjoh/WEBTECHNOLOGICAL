@@ -49,7 +49,10 @@
     border: calc(4rem/16) solid #f3f1ef;
     text-align: center;
     border-radius: 20px;
+    justify-content: center; 
+    align-items: center; 
 }
+
 .cart-item {
     display: flex;
     align-items: center;
@@ -82,4 +85,43 @@ button {
 button:hover {
     color: white;
     background-color: #081c3c;
+}
+.cart-header {
+    margin-bottom: 30px;
+}
+.belasting-total {
+    margin-bottom: 30px;
+}
+
+/* Existing styles... */
+
+@media (max-width: 800px) {
+    #cart-container {
+        width: 100%; 
+        padding: 10px; 
+    }
+
+    .cartinfo-box {
+        flex-direction: column; 
+    }
+
+    .item-box, .payment-box {
+        width: 88%; 
+    }
+
+    .cart-item, .cart-item img, .cart-item h3, .cart-item p, .payment-box, .button-box button {
+        font-size: calc(14rem/16);
+    }
+
+
+    button {
+        height: 44px;
+        padding: 2px 4px;
+        font-size: small;
+    }
+
+   
+    .cart-header, .belasting-total {
+        margin-bottom: 17px;
+    }
 }

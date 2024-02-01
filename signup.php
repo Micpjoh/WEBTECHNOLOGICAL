@@ -7,7 +7,8 @@ if (isset($_SESSION['user_id'])) {
     die();
 }
 
-// Als input correct is behoud het, als input zorgt voor error verwijder het.
+// if input is correct it will be saved in the form this is to enhance user experience, so users dont have to refill all the inputs
+// this makes it so only inputs that are incorrect are removed.
 function remember_forminput($input) {
     if (isset($_SESSION["inputsform"][$input]) && !isset($_SESSION["errors_rememberform"][$input]))
         echo $_SESSION["inputsform"][$input];
@@ -45,7 +46,7 @@ function remember_forminput($input) {
             <form id="signup-form" action="includes/signup.inc.php" method="post">
                 <h1>Sign up to&nbsp; <span style="color: green;"> GreenWear</span></h1>
                 
-                <!-- Laat errors zien van signup form (Alleen de eerste error) -->
+                <!-- Shows errors if form not filled in correctly, only the first one, else it would be too much -->
                 <?php 
                 if (isset($_SESSION["errors"])) {
                     foreach ($_SESSION["errors"] as $displayerror) {

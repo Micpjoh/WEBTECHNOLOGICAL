@@ -1,13 +1,13 @@
 <!-- signup.inc.php -->
 <?php
+// add session an db connection
 session_start();
 require_once "databasis.inc.php";
 require_once "checkvaliditysignup.inc.php";
 
-// Check of user niet via URL is gekomen
+// Check if user came here through the url
 if (isset($_POST["submit"])) {
 
-    // Gegeven inputs / sanitized
     $email = htmlspecialchars($_POST["email"], ENT_QUOTES, 'UTF-8');
     $emailrepeat = htmlspecialchars($_POST["email-repeat"], ENT_QUOTES, 'UTF-8');
     $pw = htmlspecialchars($_POST["password"], ENT_QUOTES, 'UTF-8');
@@ -16,10 +16,10 @@ if (isset($_POST["submit"])) {
     $consent = $_POST["consent"];
     $user_type = "user";
 
-    // Als form niet succesvol is ingevuld, voeg de errors toe aan $errordisplay array.
+    // If form is not filled in correctly add the errors to $errordisplay
 
-    // $errorrememberform wordt gebruikt om te beslissen of input moet worden behouden, 
-    // of niet. Dit is om user experience te verbeteren.
+    // $errorrememberform checks if input should be kept or not depening if it causes a error 
+    // this is to enhance user experience, so users dont have to refill all the inputs
     $errordisplay =  [];
     $errorrememberform = [];
 

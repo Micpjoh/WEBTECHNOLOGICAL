@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// Check of alle fields zijn ingevuld.
+// Check if all forms are filled in
 function form_filledin($email, $pw) {
     if (empty($email) || empty($pw)) {
         return true;
@@ -10,7 +10,7 @@ function form_filledin($email, $pw) {
     }
 }
 
-// Check alle gerelateerde info van user, door te zoeken met gegeven email
+// Use email to get user info
 function get_user_by_email($email, $sqliconn) {
     $preparedstatement = $sqliconn->prepare("SELECT * FROM users WHERE email = ?");
     $preparedstatement->bind_param("s", $email);
@@ -25,20 +25,20 @@ function get_user_by_email($email, $sqliconn) {
 function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
     $user = get_user_by_email($email, $sqliconn);
 
-    // Als email niet leidt tot user, geef een login error
+    // If email isnt in database, send user back to login page with a error
     if (!$user) {
         header("Location: ../login.php?error=name-or-pw-is-wrong");
         die();
     }
 
-    // Check of password klopt
+    // Check if pw is correct
     $pwhash = $user["pw"];
     $checkpw = password_verify($pw, $pwhash);
 
-    // als remember me aangeklikt, maak rememberme cookies aan.
+    // If remember me has been clicked, create a cookie, with a certain tokencode
     if ($rememberMe) {
         $token = bin2hex(random_bytes(64));
-        setcookie('rememberme', $token, time() + (86400 * 30), "/"); // 86400 = 1 dag
+        setcookie('rememberme', $token, time() + (86400 * 30), "/"); // 86400 = 1 day
 
         $expiresAt = time() + (86400 * 30);
         $datedexpiresAt = date('Y-m-d H:i:s', $expiresAt);
@@ -48,26 +48,26 @@ function log_validuser_in($sqliconn, $email, $pw, $rememberMe) {
     }
 
 
-    // Als password klopt check voor remember me cookies en log user in als admin of normaal
+    // check if pw is correct with password verify
     if ($checkpw) {
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_name'] = $user['username'];
         $_SESSION['user_type'] = $user['user_type'];
 
-        // log in als admin als user_type "admin" is
+        // log in as admin if user_type "admin" is
         if ($_SESSION['user_type'] === 'admin') {
             header("Location: ../admin.php");
             die();
         } 
 
-        // log in als user als user_type "user" is
+        // log in as user if user_type "user" is
         if ($_SESSION['user_type'] === 'user'){
             header("Location: ../index.php");
             die();
         }
     } 
     else {
-        header("Location: ../login.php?error=name-or-pw-is-wrong");
+        header("Location: ../login.php?error=email-or-pw-is-wrong");
         die();
     }
 }

@@ -48,11 +48,11 @@ $orders = get_order($_SESSION['user_id'], $sqliconn);
                 </div>
 
                 <div class="function-group">
-                    <button><a href="#">Catalog</a></button>
+                    <button><a href="catalog.php">Catalog</a></button>
                 </div>
 
                 <div class="function-group">
-                    <button><a href="#">Design</a></button>
+                    <button><a href="design.php">Design</a></button>
                 </div>
 
                 <div class="function-group">

@@ -1,20 +1,20 @@
 <?php
-// dit page regelt het verwijderen van producten uit de database (Catalog) via de admin profilepage
+// this page handels the addition of products to the catalog
 
-// voeg sessie en database connectie
+// add session and db connection
 require_once "securesession.inc.php";
 require_once "databasis.inc.php";
 // db connectie is: $sqliconn
 
-//check of user admin is, anders geen toegang
+// Check if user is a admin
 if (!isset($_SESSION['user_id']) || ($_SESSION['user_type'] !== "admin")) {
     header("Location: ../index.php");
     die();
 }
 
-//check of admin gekomen is via submit button, anders terug naar admin.php
+// check if came from button
 if (isset($_POST['submit'])) {
-    //variables klaarleggen, uit URL. form -> method="POST"
+    // store given inputs through the post method of the button
     $productName = $_POST['product_name'];
     $productInfo = $_POST['product_info'];
     $price = $_POST['price'];
@@ -26,17 +26,14 @@ if (isset($_POST['submit'])) {
     //prep sql query
     $preparedstatement = $sqliconn->prepare( "INSERT INTO products (product_name, product_info, price, stock, img, category, category_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
-    //voeg variablen toe op de placeholder Values
+    // fill the placeholders
     $preparedstatement->bind_param("ssdissi", $productName, $productInfo, $price, $stock, $image, $category, $categoryID);
-
-    //execute statement en lose it
     $preparedstatement->execute();
     $preparedstatement->close();
     header("Location: ../admin.php");
     die();
 }
 else {
-    // voor als niet via sumbit button gekomen naar dit page
     header("Location: ../admin.php");
     die();
 }

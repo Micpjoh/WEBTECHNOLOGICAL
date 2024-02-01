@@ -2,7 +2,7 @@
 session_start();
 require_once "databasis.inc.php";
 
-// verwijder eerst rememberme cookie
+// If user logs out remove his cookies.
 if (isset($_COOKIE['rememberme'])) {
     $token = $_COOKIE['rememberme'];
     $preparedstatement = $sqliconn->prepare("DELETE FROM tokenlogin WHERE token = ?");
@@ -10,7 +10,7 @@ if (isset($_COOKIE['rememberme'])) {
     $preparedstatement->execute();
     setcookie('rememberme', '', time() - 3600, "/");
 }
-// log user uit
+// log user out
 session_unset();
 session_destroy();
 header("Location: ../login.php");

@@ -27,7 +27,7 @@ function getProducts($category_id) {
                 </div>
                 <div class='item-desc'>
                     <h3 class='name'>$product_name</h3>
-                    <h3 class= 'desc'>$desc</h3>
+                    <h3 class='desc' style='font-size: 16px;'>$desc</h3>
                     <h3 class='price'>€$price</h3>
                 </div>
             </a>";
