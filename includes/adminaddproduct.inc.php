@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 // this page handels the addition of products to the catalog
 
 // add session and db connection

@@ -1,23 +1,21 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 require_once "databasis.inc.php";
 
 // Check if user has came through submit button and not URL
 if (isset($_POST['submit'])) {
     //remove user cookies
-    if (isset($_COOKIE['rememberme'])) {
-        $token = $_COOKIE['rememberme'];
-        // prep sql query to delete rememberme
-        $preparedstatement = $sqliconn->prepare("DELETE FROM tokenlogin WHERE token = ?");
-        $preparedstatement->bind_param("s", $token);
-        $preparedstatement->execute();
-        setcookie('rememberme', '', time() - 3600, "/");
-    }
+    $preparedstatement = $sqliconn->prepare("DELETE FROM tokenlogin WHERE user_id = ?");
+    $preparedstatement->bind_param("s", $_SESSION['user_id']);
+    $preparedstatement->execute();
+
     // Set user_id in orders to NULL else there will be a foreign key error when deleting user
-    $userId = $_SESSION['user_id'];
     // Update user_id to NULL
     $preparedstatement = $sqliconn->prepare("UPDATE orders SET user_id = NULL WHERE user_id = ?");
-    $preparedstatement->bind_param("i", $userId);
+    $preparedstatement->bind_param("i", $_SESSION['user_id']);
     $preparedstatement->execute();
     
     // Delete the users account

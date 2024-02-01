@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 // Take order info out of database, will be set in associatve array in profile.php
 function get_order($user_id, $sqliconn) {
     $preparedstatement = $sqliconn->prepare("SELECT order_code, order_created, order_arrival FROM orders WHERE user_id = ? ORDER BY order_created DESC");

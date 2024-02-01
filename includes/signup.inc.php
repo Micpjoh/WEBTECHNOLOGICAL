@@ -1,5 +1,8 @@
 <!-- signup.inc.php -->
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 // add session an db connection
 session_start();
 require_once "databasis.inc.php";
