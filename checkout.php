@@ -17,18 +17,17 @@ if (isset($_POST['submit'])) {
                         SET p.stock = p.stock - c.quantity
                         WHERE c.user_id = ?";
 
-    $stmtUpdateStock = $sqliconn->prepare($sqlUpdateStock);
-    $stmtUpdateStock->bind_param("i", $_SESSION['user_id']);
-    $stmtUpdateStock->execute();
-    $stmtUpdateStock->close();
+    $preparedstatement = $sqliconn->prepare($sqlUpdateStock);
+    $preparedstatement->bind_param("i", $_SESSION['user_id']);
+    $preparedstatement->execute();
+    $preparedstatement->close();
 
     // 2. Clear the cart
-    $sqlClearCart = "DELETE FROM cart WHERE user_id = ?";
-    $stmtClearCart = $sqliconn->prepare($sqlClearCart);
-    $stmtClearCart->bind_param("i", $_SESSION['user_id']);
-    $stmtClearCart->execute();
-    $stmtClearCart->close();
-    
+    $preparedstatement = $sqliconn->prepare("DELETE FROM cart WHERE user_id = ?");
+    $preparedstatement->bind_param("i", $_SESSION['user_id']);
+    $preparedstatement->execute();
+    $preparedstatement->close();
+
     create_order($user_id, $sqliconn);
 
     echo '<script type="text/javascript">

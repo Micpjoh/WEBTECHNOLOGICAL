@@ -1,13 +1,18 @@
+// select all radio buttons, check for change, if yes, make it the value
 document.querySelectorAll('label.button-container input[name="clothing"]').forEach(function(radioButton) {
     radioButton.addEventListener('change', function() {
         var selectedClothing = this.value;
-        console.log("Selected Clothing:", selectedClothing);
 
         // Update the hidden input field with the selected clothing value
         document.getElementById('selectedClothingInput').value = selectedClothing;
     });
 });
+<<<<<<< HEAD
 //Turn bloburl to base64 url to display in the admin 
+=======
+
+// Use to change a blob file in a base64URL, which we then can use as img in database
+>>>>>>> a347955 (.)
 function blobUrlToBase64(blobUrl, callback) {
     const xhr = new XMLHttpRequest();
     xhr.onload = function() {
