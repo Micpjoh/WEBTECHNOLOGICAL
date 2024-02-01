@@ -8,7 +8,7 @@ require_once "includes/securesession.inc.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Design</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css_files/main.css">
     <link rel="stylesheet" href="css_files/design.css">
