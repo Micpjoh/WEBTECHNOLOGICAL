@@ -75,7 +75,7 @@ require_once "includes/securesession.inc.php";
         </div>
 
         <div class="aboutus-box">
-            <img src="img/catwithclothes.jpeg">
+            <img src="img/catwithclothes.jpg">
             <div class="aboutus-info">
                 <h2>One size fits all</h2>
                 <p>
@@ -90,7 +90,7 @@ require_once "includes/securesession.inc.php";
         </div>
 
         <div class="aboutus-box">
-            <img src="img/happy.jpg">
+            <img src="img/happy.jpeg">
             <div class="aboutus-info">
                 <h2>Our history</h2>
                 <p>
