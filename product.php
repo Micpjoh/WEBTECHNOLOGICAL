@@ -70,15 +70,6 @@ require_once "includes/securesession.inc.php";
                             <h2 class='name'>$product_name</h2>
                             <label for='desc'>Price:</label>
                             <h3 class='desc'>$price</h3>
-                            
-                            <label for='desc'>Rating:</label>
-                            <h3 class='desc'>
-                            <span class='fa fa-star checked'></span>
-                            <span class='fa fa-star checked'></span>
-                            <span class='fa fa-star checked'></span>
-                            <span class='fa fa-star checked'></span>
-                            <span class='fa fa-star'></span>
-                            </h3>
 
                             <label for='desc'>Description:</label>
                             <h3 class='desc'>$desc</h3>
